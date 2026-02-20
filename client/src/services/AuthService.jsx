@@ -1,0 +1,73 @@
+import axiosInstance from "./AxiosInstance";
+import swal from "sweetalert";
+import { loginConfirmedAction, Logout } from "../store/actions/AuthActions";
+
+export function signUp(name, email, password) {
+  //axios call
+
+  const postData = {
+    name,
+    email,
+    password,
+  };
+
+  return axiosInstance.post("/api/auth/signup", postData);
+}
+
+export function login(email, password) {
+  const postData = {
+    email,
+    password,
+  };
+  return axiosInstance.post(`/api/auth/login`, postData);
+}
+
+export function formatError(errorResponse) {
+  //   switch (errorResponse.error.message) {
+  //     case "EMAIL_EXISTS":
+  //       swal("Oops", "Email already exists", "error");
+  //       break;
+  //     case "EMAIL_NOT_FOUND":
+  //       swal("Oops", "Email not found", "error", { button: "Try Again!" });
+  //       break;
+  //     case "INVALID_PASSWORD":
+  //       swal("Oops", "Invalid Password", "error", { button: "Try Again!" });
+  //       break;
+  //     case "USER_DISABLED":
+  //       return "User Disabled";
+  //     default:
+  //       return "";
+  //   }
+}
+
+export function saveTokenInLocalStorage(token) {
+  localStorage.setItem("token", token);
+}
+
+export function runLogoutTimer(dispatch, timer, navigate) {
+  setTimeout(() => {
+    dispatch(Logout(navigate));
+  }, timer);
+}
+
+export function checkAutoLogin(dispatch, navigate) {
+  const tokenDetailsString = localStorage.getItem("userDetails");
+  let tokenDetails = "";
+  if (!tokenDetailsString) {
+    dispatch(Logout(navigate));
+    return;
+  }
+
+  tokenDetails = JSON.parse(tokenDetailsString);
+  let expireDate = new Date(tokenDetails.expireDate);
+  let todaysDate = new Date();
+
+  if (todaysDate > expireDate) {
+    dispatch(Logout(navigate));
+    return;
+  }
+
+  dispatch(loginConfirmedAction(tokenDetails));
+  const timer = expireDate.getTime() - todaysDate.getTime();
+  runLogoutTimer(dispatch, timer, navigate);
+}
