@@ -11,7 +11,7 @@ const generateToken = (id, role) => {
 exports.signup = async (req, res) => {
   const { name, email, password } = req.body;
 
-  console.log('name email password',name,email,password)
+  console.log("name email password", name, email, password);
 
   const existing = await User.findOne({ email });
   if (existing)
@@ -35,18 +35,25 @@ exports.login = async (req, res) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });
-  if (!user)
-    return res.status(400).json({ message: "Invalid credentials" });
+  if (!user) return res.status(400).json({ message: "Invalid credentials" });
 
-  if (user.isBlocked)
-    return res.status(403).json({ message: "User blocked" });
+  if (user.isBlocked) return res.status(403).json({ message: "User blocked" });
 
   const match = await bcrypt.compare(password, user.password);
-  if (!match)
-    return res.status(400).json({ message: "Invalid credentials" });
+  if (!match) return res.status(400).json({ message: "Invalid credentials" });
 
   res.json({
     token: generateToken(user._id, user.role),
+    user,
+  });
+};
+
+exports.getUser = async (req, res) => {
+
+  console.log('get user route hitting')
+  const user = req.user;
+
+  res.json({
     user,
   });
 };
