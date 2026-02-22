@@ -146,7 +146,7 @@ function CreateUser() {
               </div>
               <div className="card-footer">
                 <button type="submit" className="btn btn-primary">
-                  UPDATE
+                  SUBMIT
                 </button>
                 <Link
                   to="/page-forgot-password"

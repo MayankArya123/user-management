@@ -8,8 +8,10 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { updateUserAction } from "../../../store/actions/AuthActions";
+import { useNavigate } from "react-router-dom";
 
 function EditProfile() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const authState = useSelector((state) => state?.auth?.user);
   const [imagePreview, setImagePreview] = useState(null);
@@ -28,6 +30,8 @@ function EditProfile() {
     name: "",
     email: "",
     phone: "",
+    role: "",
+    isBlack: false,
   });
 
   const [passwordData, setPasswordData] = useState({
@@ -59,7 +63,7 @@ function EditProfile() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const data = new FormData();
@@ -78,50 +82,61 @@ function EditProfile() {
     }
     console.log("updated data check", data);
 
-    dispatch(updateUserAction(authState?._id, data));
+    const result = await dispatch(
+      updateUserAction(authState?._id, data, navigate),
+    );
   };
+
+  const role = authState?.role;
 
   return (
     <Fragment>
       <PageTitle activeMenu="Edit Profile" motherMenu="App" />
       <div className="row">
-        <div className="col-xl-3 col-lg-4">
-          <div className="clearfix">
-            <div className="card  profile-card author-profile m-b30">
-              <div className="card-body">
-                <div className="p-5">
-                  <div className="author-profile">
-                    <div className="author-media">
-                      <img
-                        src={`${imagePreview ? imagePreview : IMAGE_URl + profileImage} `}
-                        alt="profileImg"
-                      />
-                      <div
-                        className="upload-link"
-                        title=""
-                        data-toggle="tooltip"
-                        data-placement="right"
-                        data-original-title="update"
-                      >
-                        <input
-                          type="file"
-                          name="profilePicture"
-                          className="update-flie"
-                          onChange={handleImageChange}
+        {role === "user" && (
+          <div className="col-xl-3 col-lg-4">
+            <div className="clearfix">
+              <div className="card  profile-card author-profile m-b30">
+                <div className="card-body">
+                  <div className="p-5">
+                    <div className="author-profile">
+                      <div className="author-media">
+                        <img
+                          src={`${imagePreview ? imagePreview : IMAGE_URl + profileImage} `}
+                          alt="profileImg"
                         />
-                        <i className="fa fa-camera" />
+                        <div
+                          className="upload-link"
+                          title=""
+                          data-toggle="tooltip"
+                          data-placement="right"
+                          data-original-title="update"
+                        >
+                          <input
+                            type="file"
+                            name="profilePicture"
+                            className="update-flie"
+                            onChange={handleImageChange}
+                          />
+                          <i className="fa fa-camera" />
+                        </div>
                       </div>
-                    </div>
-                    <div className="author-info">
-                      <h6 className="title"> {authState?.name}</h6>
+                      <div className="author-info">
+                        <h6 className="title"> {authState?.name}</h6>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="col-xl-9 col-lg-8">
+        )}
+
+        <div
+          className={
+            role === "user" ? "col-xl-9 col-lg-8" : "col-xl-12 col-lg-12"
+          }
+        >
           <div className="card profile-card m-b30">
             <div className="card-header">
               <h4 className="card-title">Account setup</h4>
@@ -145,18 +160,36 @@ function EditProfile() {
                     </div>
                   </div>
 
-                  <div className="col-sm-6">
-                    <div className="mb-3">
-                      <label className="form-label">Phone</label>
-                      <input
-                        type="number"
-                        className="form-control"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                      />
+                  {role === "user" ? (
+                    <div className="col-sm-6">
+                      <div className="mb-3">
+                        <label className="form-label">Phone</label>
+                        <input
+                          type="number"
+                          className="form-control"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                        />
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    <div className="col-sm-6">
+                      <div className="mb-3">
+                        <label className="form-label">Role</label>
+                        <select
+                          name="role"
+                          className="col-sm-12 form-control"
+                          value={formData.role}
+                          onChange={handleChange}
+                        >
+                          <option value="user">User</option>
+                          <option value="admin">Admin</option>
+                        </select>
+                      </div>
+                    </div>
+                  )}
+
                   <div className="col-sm-6">
                     <div className="mb-3">
                       <label className="form-label" htmlFor="Email">
@@ -172,29 +205,32 @@ function EditProfile() {
                       />
                     </div>
                   </div>
-                  <div className="col-sm-6">
-                    <div className="mb-3">
-                      <label className="form-label">Bio</label>
-                      <textarea
-                        className="form-control"
-                        name="bio"
-                        value={formData.bio}
-                        onChange={handleChange}
-                      />
+
+                  {role !== "user" && (
+                    <div className="col-sm-6">
+                      <div className="mb-3">
+                        <label className="form-label">Bio</label>
+                        <textarea
+                          className="form-control"
+                          name="bio"
+                          value={formData.bio}
+                          onChange={handleChange}
+                        />
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
               <div className="card-footer">
                 <button type="submit" className="btn btn-primary">
                   UPDATE
                 </button>
-                <Link
+                {/* <Link
                   to="/page-forgot-password"
                   className="text-hover float-end"
                 >
                   Forgot your password?
-                </Link>
+                </Link> */}
               </div>
             </form>
           </div>

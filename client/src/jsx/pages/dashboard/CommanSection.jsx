@@ -21,6 +21,8 @@ import ChartBarRunning4 from "../../components/dashboard/chartbarrunning4";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getUsers } from "../../../services/UserService";
+import { useNavigate } from "react-router-dom";
+import { deleteUser } from "../../../services/UserService";
 
 const CommanSection = () => {
   const authState = useSelector((state) => state?.auth?.user);
@@ -31,9 +33,20 @@ const CommanSection = () => {
     setUsers(users);
   };
 
+  const deleteUserData = async (id) => {
+    console.log("check id", id);
+    const deleteResponse = await deleteUser(id);
+
+    if (deleteResponse?.status === 200) {
+      getUserData();
+    }
+  };
+
   useEffect(() => {
     getUserData();
   }, []);
+
+  console.log("users", users);
 
   const chackboxFun = (type) => {
     setTimeout(() => {
@@ -101,14 +114,14 @@ const CommanSection = () => {
           <div className="col-sm-6 mb-sm-4 mb-3">
             <h3 className="mb-0">Good Morning, {authState?.name} </h3>
             <p className="mb-0">
-                {authState?.role === 'admin' ? 'Here are all users'  : '' }
+              {authState?.role === "admin" ? "Here are all users" : ""}
             </p>
           </div>
           <div className="col-sm-6 mb-4 text-sm-end">
             {/* <Link to={"#"} className="btn btn-outline-secondary">
               Add User
             </Link> */}
-            <Link to={"/create-user"} className="btn btn-primary ms-2" >
+            <Link to={"/create-user"} className="btn btn-primary ms-2">
               Add User
             </Link>
           </div>
@@ -341,12 +354,7 @@ const CommanSection = () => {
                             >
                               Role
                             </th>
-                            <th
-                              className="sorting c-pointer"
-                              onClick={() => sortData("payment")}
-                            >
-                              Bio
-                            </th>
+
                             <th
                               className="sorting c-pointer"
                               onClick={() => sortData("status")}
@@ -392,10 +400,7 @@ const CommanSection = () => {
                                 {" "}
                                 <span>{data.role}</span>{" "}
                               </td>
-                              <td>
-                                {" "}
-                                <span>{data.bio}</span>{" "}
-                              </td>
+
                               <td>
                                 {" "}
                                 <span>
@@ -415,13 +420,13 @@ const CommanSection = () => {
                                   </Dropdown.Toggle>
                                   <Dropdown.Menu className="dropdown-menu dropdown-menu-end">
                                     <Dropdown.Item
-                                      href="#"
                                       className="dropdown-item"
+                                      onClick={() => deleteUserData(data?._id)}
                                     >
                                       Delete
                                     </Dropdown.Item>
                                     <Dropdown.Item
-                                      href="#"
+                                      href={`/edit-profile/${data?._id}`}
                                       className="dropdown-item"
                                     >
                                       Edit

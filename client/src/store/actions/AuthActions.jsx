@@ -55,7 +55,7 @@ export function loginAction(email, password, navigate) {
         navigate("/dashboard");
       })
       .catch((error) => {
-        console.log('error',error)
+        console.log("error", error);
         const errorMessage = formatError(error.response.data);
         dispatch(loginFailedAction(errorMessage));
       });
@@ -70,7 +70,7 @@ export function loginFailedAction(data) {
 }
 
 export function loginConfirmedAction(data) {
-  console.log('check data ',data)
+  console.log("check data ", data);
   return {
     type: LOGIN_CONFIRMED_ACTION,
     payload: data,
@@ -100,17 +100,20 @@ export function loadingToggleAction(status) {
 
 export function setUserData(payload) {
   return {
-    type:  UPDATE_USER_SUCCESS,
+    type: UPDATE_USER_SUCCESS,
     payload: payload,
   };
 }
 
-
-export function updateUserAction(userId, data) {
+export function updateUserAction(userId, data, navigate) {
   return (dispatch) => {
-    updateUser(userId,data)
+    updateUser(userId, data)
       .then((response) => {
-        console.log('user updated',response)
+        console.log("user updated", response);
+        if (response?.status === 200) {
+          alert("user updated");
+          navigate("/dashboard");
+        }
         // saveTokenInLocalStorage(response.data);
         // runLogoutTimer(dispatch, response.data.expiresIn * 1000);
         // dispatch(updateUserdata(response.data));
