@@ -1,8 +1,20 @@
 import axiosInstance from "./AxiosInstance";
 
-export function  getUsers() {
-  return axiosInstance.get(`api/admin/users`);
-}
+export const getUsers = async ({
+  page = 1,
+  limit = 10,
+  search = "",
+  role,
+  blocked = false,
+}) => {
+  console.log("role check", role);
+
+  const response = await axiosInstance.get("/api/admin/users", {
+    params: { page, limit, search, role, blocked },
+  });
+
+  return response.data;
+};
 
 export function createUser(userData) {
   return axiosInstance.post(`api/admin/users`, userData);

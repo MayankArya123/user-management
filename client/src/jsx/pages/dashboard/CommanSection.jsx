@@ -27,10 +27,26 @@ import { deleteUser } from "../../../services/UserService";
 const CommanSection = () => {
   const authState = useSelector((state) => state?.auth?.user);
   const [users, setUsers] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [search, setSearch] = useState("");
+  const [roleFilter, setRoleFilter] = useState("");
+  const [blockedFilter, setBlockedFilter] = useState(false);
+  const limit = 5;
 
   const getUserData = async () => {
-    const users = await getUsers();
-    setUsers(users);
+    const response = await getUsers({
+      page: currentPage,
+      limit,
+      search,
+      role :roleFilter,
+      blocked:blockedFilter,
+    });
+
+    console.log("response", response);
+
+    setUsers(response.users);
+    setTotalPages(response.pages);
   };
 
   const deleteUserData = async (id) => {
@@ -44,7 +60,7 @@ const CommanSection = () => {
 
   useEffect(() => {
     getUserData();
-  }, []);
+  }, [currentPage, search, roleFilter, blockedFilter]);
 
   console.log("users", users);
 
@@ -287,7 +303,10 @@ const CommanSection = () => {
               <div className="card">
                 <div className="card-header flex-wrap">
                   <h5 className="mb-0"> Users </h5>
-                  <div className="d-flex align-items-center justify-content-between transaction flex-wrap">
+                  <div
+                    style={{ width: "30%" }}
+                    className="d-flex align-items-center justify-content-between transaction flex-wrap"
+                  >
                     <div className="input-group search-area style-1">
                       <span className="input-group-text">
                         <Link to={"#"} className="m-0">
@@ -298,16 +317,76 @@ const CommanSection = () => {
                         type="text"
                         className="form-control"
                         placeholder="Search"
+                        value={search}
+                        onChange={(e) => {
+                          setCurrentPage(1); // reset page
+                          setSearch(e.target.value);
+                        }}
                       />
                     </div>
-                    <Link to={"#"} className="btn">
+                    {/* <Link to={"#"} className="btn">
                       {" "}
                       {SVGICON.tablesort} Sort By{" "}
-                    </Link>
-                    <Link to={"#"} className="btn">
-                      {" "}
-                      {SVGICON.tablefilter} Filter{" "}
-                    </Link>
+                    </Link> */}
+                    <Dropdown align="end">
+                      <Dropdown.Toggle
+                        as="div"
+                        className="btn btn-outline-primary"
+                      >
+                        {SVGICON.tablefilter} Filter
+                      </Dropdown.Toggle>
+
+                      <Dropdown.Menu
+                        className="p-3"
+                        style={{ minWidth: "250px" }}
+                      >
+                        {/* Role Filter */}
+                        <div className="mb-3">
+                          <label className="form-label">Role</label>
+                          <select
+                            className="form-select"
+                            value={roleFilter}
+                            onChange={(e) => {
+                              setCurrentPage(1);
+                              setRoleFilter(e.target.value);
+                            }}
+                          >
+                            <option value="">All</option>
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                          </select>
+                        </div>
+
+                        {/* Blocked Filter */}
+                        <div className="mb-3">
+                          <label className="form-label">Status</label>
+                          <select
+                            className="form-select"
+                            value={blockedFilter}
+                            onChange={(e) => {
+                              setCurrentPage(1);
+                              setBlockedFilter(e.target.value);
+                            }}
+                          >
+                            <option value="">All</option>
+                            <option value="true">Blocked</option>
+                            <option value="false">Active</option>
+                          </select>
+                        </div>
+
+                        {/* Clear Button */}
+                        <button
+                          className="btn btn-sm btn-secondary w-100"
+                          onClick={() => {
+                            setRoleFilter("");
+                            setBlockedFilter("");
+                            setCurrentPage(1);
+                          }}
+                        >
+                          Clear Filters
+                        </button>
+                      </Dropdown.Menu>
+                    </Dropdown>
                   </div>
                 </div>
                 <div className="card-body pb-2">
@@ -370,7 +449,7 @@ const CommanSection = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {users?.data?.users.map((data, index) => (
+                          {users.map((data, index) => (
                             <tr key={index}>
                               <td className="sorting_1">
                                 <div className="form-check custom-checkbox">
@@ -379,6 +458,12 @@ const CommanSection = () => {
                                     className="form-check-input home-check1"
                                     required
                                     onClick={() => chackboxFun()}
+                                    placeholder="Search"
+                                    value={search}
+                                    onChange={(e) => {
+                                      setCurrentPage(1); // reset page
+                                      setSearch(e.target.value);
+                                    }}
                                   />
                                   <label
                                     className="form-check-label"
@@ -789,6 +874,38 @@ const CommanSection = () => {
             </div>
           </div>
         </div> */}
+
+        <div className="d-flex justify-content-center mt-3 gap-2">
+          <button
+            className="btn btn-secondary"
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage(currentPage - 1)}
+          >
+            Previous
+          </button>
+
+          {[...Array(totalPages)].map((_, index) => (
+            <button
+              key={index}
+              className={`btn ${
+                currentPage === index + 1
+                  ? "btn-primary"
+                  : "btn-outline-primary"
+              }`}
+              onClick={() => setCurrentPage(index + 1)}
+            >
+              {index + 1}
+            </button>
+          ))}
+
+          <button
+            className="btn btn-secondary"
+            disabled={currentPage === totalPages}
+            onClick={() => setCurrentPage(currentPage + 1)}
+          >
+            Next
+          </button>
+        </div>
       </div>
     </>
   );
