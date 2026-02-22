@@ -6,12 +6,15 @@ import {
   signUp,
 } from "../../services/AuthService";
 
+import { updateUser } from "../../services/UserService";
+
 export const SIGNUP_CONFIRMED_ACTION = "[signup action] confirmed signup";
 export const SIGNUP_FAILED_ACTION = "[signup action] failed signup";
 export const LOGIN_CONFIRMED_ACTION = "[login action] confirmed login";
 export const LOGIN_FAILED_ACTION = "[login action] failed login";
 export const LOADING_TOGGLE_ACTION = "[Loading action] toggle loading";
 export const LOGOUT_ACTION = "[Logout action] logout action";
+export const UPDATE_USER_SUCCESS = "[User] Update Success";
 
 export function signupAction(name, email, password, navigate) {
   return (dispatch) => {
@@ -67,6 +70,7 @@ export function loginFailedAction(data) {
 }
 
 export function loginConfirmedAction(data) {
+  console.log('check data ',data)
   return {
     type: LOGIN_CONFIRMED_ACTION,
     payload: data,
@@ -91,5 +95,29 @@ export function loadingToggleAction(status) {
   return {
     type: LOADING_TOGGLE_ACTION,
     payload: status,
+  };
+}
+
+export function setUserData(payload) {
+  return {
+    type:  UPDATE_USER_SUCCESS,
+    payload: payload,
+  };
+}
+
+
+export function updateUserAction(userId, data) {
+  return (dispatch) => {
+    updateUser(userId,data)
+      .then((response) => {
+        console.log('user updated',response)
+        // saveTokenInLocalStorage(response.data);
+        // runLogoutTimer(dispatch, response.data.expiresIn * 1000);
+        // dispatch(updateUserdata(response.data));
+      })
+      .catch((error) => {
+        // const errorMessage = formatError(error.response.data);
+        // dispatch(signupFailedAction(errorMessage));
+      });
   };
 }

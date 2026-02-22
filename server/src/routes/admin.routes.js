@@ -1,10 +1,22 @@
 const router = require("express").Router();
 const { protect, isAdmin } = require("../middleware/auth.middleware");
-const { getUsers, blockUser } = require("../controllers/admin.controller");
+const {
+  getUsers,
+  blockUser,
+  createUser,
+  updateUser,
+  toggleBlockUser,
+  impersonateUser,
+  switchBack,
+} = require("../controllers/admin.controller");
 const { getUser } = require("../controllers/auth.controller");
 
 router.get("/users", protect, isAdmin, getUsers);
-router.get("/user", protect, getUser);
-router.patch("/users/:id/block", protect, isAdmin, blockUser);
+router.post("/users", protect, isAdmin, createUser);
+router.put("/users/:id", protect, isAdmin, updateUser);
+router.delete("/users/:id", protect, isAdmin, deleteUser);
+router.patch("/users/:id/block", protect, isAdmin, toggleBlockUser);
+router.post("/impersonate/:userId", protect, isAdmin, impersonateUser);
+router.post("/switch-back", protect, isAdmin, switchBack);
 
 module.exports = router;
