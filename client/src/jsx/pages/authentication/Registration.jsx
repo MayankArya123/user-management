@@ -83,7 +83,7 @@ function Register(props) {
                         <input
                           type="text"
                           className="form-control"
-                          placeholder="username"
+                          placeholder=""
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                         />
@@ -96,7 +96,7 @@ function Register(props) {
                           onChange={(e) => setEmail(e.target.value)}
                           type="email"
                           className="form-control"
-                          placeholder="hello@example.com"
+                          placeholder=""
                         />
                         {errors.email && <div>{errors.email}</div>}
                       </div>
@@ -106,7 +106,7 @@ function Register(props) {
                           <input
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            placeholder="Password"
+                            placeholder=""
                             type={openEyes ? "password" : "value"}
                             id="ic-password"
                             className="form-control"

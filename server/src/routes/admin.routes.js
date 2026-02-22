@@ -8,6 +8,7 @@ const {
   toggleBlockUser,
   impersonateUser,
   switchBack,
+  deleteUser
 } = require("../controllers/admin.controller");
 const { getUser } = require("../controllers/auth.controller");
 

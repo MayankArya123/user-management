@@ -81,6 +81,19 @@ const CommanSection = () => {
     setData(sortedData);
     setSortConfig({ key, direction });
   };
+
+  const formatDate = (isoDate) => {
+    const date = new Date(isoDate);
+
+    const options = {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    };
+
+    return date.toLocaleDateString("en-IN", options);
+  };
+
   return (
     <>
       <div className="page-head">
@@ -88,14 +101,14 @@ const CommanSection = () => {
           <div className="col-sm-6 mb-sm-4 mb-3">
             <h3 className="mb-0">Good Morning, {authState?.name} </h3>
             <p className="mb-0">
-              Here’s what’s happening with your store today
+                {authState?.role === 'admin' ? 'Here are all users'  : '' }
             </p>
           </div>
           <div className="col-sm-6 mb-4 text-sm-end">
             {/* <Link to={"#"} className="btn btn-outline-secondary">
               Add User
             </Link> */}
-            <Link to={"#"} className="btn btn-primary ms-2">
+            <Link to={"/create-user"} className="btn btn-primary ms-2" >
               Add User
             </Link>
           </div>
@@ -232,7 +245,7 @@ const CommanSection = () => {
                 </div>
               </div>
             </div> */}
-            <div className="col-xl-4">
+            {/* <div className="col-xl-4">
               <div className="card">
                 <div className="card-header border-0 pb-0">
                   <h5>Users Contact</h5>
@@ -254,10 +267,10 @@ const CommanSection = () => {
                     </button>
                   </form>
                 </div>
-                <Contactdata gap="g-2" />
+                <Contactdata gap="g-2" users={users} />
               </div>
-            </div>
-            <div className="col-xl-8">
+            </div> */}
+            <div className="col-xl-12">
               <div className="card">
                 <div className="card-header flex-wrap">
                   <h5 className="mb-0"> Users </h5>
@@ -309,7 +322,12 @@ const CommanSection = () => {
                                   htmlFor="checkAll"
                                 ></label>
                               </div>{" "}
-                              <span>ID</span>
+                            </th>
+                            <th
+                              className="sorting c-pointer"
+                              onClick={() => sortData("date")}
+                            >
+                              Name
                             </th>
                             <th
                               className="sorting c-pointer"
@@ -321,19 +339,19 @@ const CommanSection = () => {
                               className="sorting c-pointer"
                               onClick={() => sortData("client")}
                             >
-                              Client
+                              Role
                             </th>
                             <th
                               className="sorting c-pointer"
                               onClick={() => sortData("payment")}
                             >
-                              Payment
+                              Bio
                             </th>
                             <th
                               className="sorting c-pointer"
                               onClick={() => sortData("status")}
                             >
-                              Status
+                              Is Blocked
                             </th>
                             <th
                               className="sorting c-pointer"
@@ -344,7 +362,7 @@ const CommanSection = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {data.map((data, index) => (
+                          {users?.data?.users.map((data, index) => (
                             <tr key={index}>
                               <td className="sorting_1">
                                 <div className="form-check custom-checkbox">
@@ -359,18 +377,31 @@ const CommanSection = () => {
                                     htmlFor="customCheckBox3"
                                   ></label>
                                 </div>{" "}
-                                <span>{data.id}</span>
                               </td>
                               <td>
                                 {" "}
-                                <p className="mb-0 ms-2">18 Feb 2025</p>{" "}
+                                <p className="mb-0 ms-2">{data?.name}</p>{" "}
                               </td>
                               <td>
                                 {" "}
-                                <span>{data.client}</span>{" "}
+                                <p className="mb-0 ms-2">
+                                  {formatDate(data?.createdAt)}
+                                </p>{" "}
                               </td>
-                              <td> {data.payment} </td>
-                              <td className="pe-0"> {data.status} </td>
+                              <td>
+                                {" "}
+                                <span>{data.role}</span>{" "}
+                              </td>
+                              <td>
+                                {" "}
+                                <span>{data.bio}</span>{" "}
+                              </td>
+                              <td>
+                                {" "}
+                                <span>
+                                  {data.isBlocked ? "true" : "false"}
+                                </span>{" "}
+                              </td>
                               <td>
                                 <Dropdown
                                   className="dropdown c-pointer ms-2"

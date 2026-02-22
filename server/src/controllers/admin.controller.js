@@ -1,6 +1,7 @@
-const User = require("../models/user.model");
-const ImpersonationLog = require("../models/impersonation.model");
+const User = require("../models/User");
+const ImpersonationLog = require("../models/Impersonate");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 
 exports.getUsers = async (req, res) => {
   try {
@@ -40,8 +41,20 @@ exports.getUsers = async (req, res) => {
 };
 
 exports.createUser = async (req, res) => {
+  console.log("admin create user form hitting", req.body);
+
   try {
-    const user = await User.create(req.body);
+    const { password, ...rest } = req.body;
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    console.log('hased password',hashedPassword)
+
+    const user = await User.create({
+      ...rest,
+      password: hashedPassword,
+    });
+
     res.status(201).json(user);
   } catch (error) {
     res.status(400).json({ message: error.message });
