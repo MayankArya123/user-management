@@ -7,8 +7,9 @@ const impersonationSchema = new mongoose.Schema(
     startedAt: { type: Date, default: Date.now },
     endedAt: Date,
     ipAddress: String,
+    isActive: { type: Boolean, default: true },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 module.exports = mongoose.model("ImpersonationLog", impersonationSchema);

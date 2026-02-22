@@ -48,7 +48,7 @@ exports.createUser = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    console.log('hased password',hashedPassword)
+    console.log("hased password", hashedPassword);
 
     const user = await User.create({
       ...rest,
@@ -88,6 +88,8 @@ exports.deleteUser = async (req, res) => {
 };
 
 exports.toggleBlockUser = async (req, res) => {
+  console.log("toggle block user hittting");
+
   try {
     const user = await User.findById(req.params.id);
 
@@ -106,25 +108,29 @@ exports.toggleBlockUser = async (req, res) => {
 };
 
 exports.impersonateUser = async (req, res) => {
-  try {
-    const targetUser = await User.findById(req.params.userId);
+  const userId = req.params.id;
 
+  console.log("userId check", userId);
+
+  try {
+    const targetUser = await User.findById(userId);
     if (!targetUser) return res.status(404).json({ message: "User not found" });
+
+    const log = await ImpersonationLog.create({
+      admin: req.user._id,
+      user: targetUser._id,
+      ipAddress: req.ip,
+    });
 
     const token = jwt.sign(
       {
         id: targetUser._id,
         impersonatedBy: req.user._id,
+        impersonationLogId: log._id,
       },
       process.env.JWT_SECRET,
       { expiresIn: "1h" },
     );
-
-    await ImpersonationLog.create({
-      admin: req.user._id,
-      user: targetUser._id,
-      ipAddress: req.ip,
-    });
 
     res.json({ token });
   } catch (error) {
@@ -134,23 +140,22 @@ exports.impersonateUser = async (req, res) => {
 
 exports.switchBack = async (req, res) => {
   try {
-    if (!req.user.impersonatedBy)
-      return res.status(400).json({ message: "Not impersonating" });
+    const impersonationLogId = req.params.id;
+
+    await ImpersonationLog.findByIdAndUpdate(impersonationLogId, {
+      endedAt: new Date(),
+      isActive: false,
+    });
+
+    console.log("check user", req.user);
+
+    console.log("check", req.user.impersonatedBy);
 
     const admin = await User.findById(req.user.impersonatedBy);
 
     const token = jwt.sign({ id: admin._id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-
-    await ImpersonationLog.findOneAndUpdate(
-      {
-        admin: admin._id,
-        user: req.user._id,
-        endedAt: null,
-      },
-      { endedAt: new Date() },
-    );
 
     res.json({ token });
   } catch (error) {

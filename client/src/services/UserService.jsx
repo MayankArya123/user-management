@@ -5,7 +5,7 @@ export const getUsers = async ({
   limit = 10,
   search = "",
   role,
-  blocked = false,
+  blocked,
 }) => {
   console.log("role check", role);
 
@@ -26,4 +26,16 @@ export function updateUser(userId, userData) {
 
 export function deleteUser(userId) {
   return axiosInstance.delete(`api/admin/users/${userId}`);
+}
+
+export function toggleBlockUser(userId) {
+  return axiosInstance.patch(`api/admin/users/block/${userId}`);
+}
+
+export function impersonateUser(userId) {
+  return axiosInstance.post(`api/admin/impersonate/${userId}`);
+}
+
+export function switchBack(impersonateId) {
+  return axiosInstance.post(`api/admin/switch-back/${impersonateId}`);
 }

@@ -8,21 +8,13 @@ import {
   swipershirtdata,
 } from "../../constant/alldata";
 import { useState } from "react";
-import Contactdata from "../../element/contactdata";
-import WeeklySalesBarChart from "../../components/dashboard/WeeklySalesBarChart";
-import HandleOrderChart from "../../components/dashboard/handleordrchar";
-import HandleMarketShare from "../../components/dashboard/handlemarketshare";
-import ProgressBarChart from "../../components/dashboard/progressbarchart";
-import BalanceChart from "../../components/dashboard/balancechart";
-import ChartBarRunning from "../../components/dashboard/chartbarrunning";
-import ChartBarRunning2 from "../../components/dashboard/chartbarrunning2";
-import ChartBarRunning3 from "../../components/dashboard/chartbarrunning3";
-import ChartBarRunning4 from "../../components/dashboard/chartbarrunning4";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getUsers } from "../../../services/UserService";
 import { useNavigate } from "react-router-dom";
 import { deleteUser } from "../../../services/UserService";
+import { toggleBlockUser } from "../../../services/UserService";
+import { impersonateUser, switchBack } from "../../../services/UserService";
 
 const CommanSection = () => {
   const authState = useSelector((state) => state?.auth?.user);
@@ -31,16 +23,63 @@ const CommanSection = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [search, setSearch] = useState("");
   const [roleFilter, setRoleFilter] = useState("");
-  const [blockedFilter, setBlockedFilter] = useState(false);
+  const [blockedFilter, setBlockedFilter] = useState(null);
   const limit = 5;
+
+  const isImpersonating = () => {
+    const token = localStorage.getItem("impersonateToken");
+    if (!token) return false;
+
+    const decoded = JSON.parse(atob(token.split(".")[1]));
+
+    console.log("decoded check", decoded);
+
+    return Boolean(decoded.impersonatedBy);
+  };
+
+  const BlockUnBlockUser = async (id) => {
+    console.log("check id", id);
+    const response = await toggleBlockUser(id);
+    console.log("response check", response);
+    getUserData();
+  };
+
+  const PersonateImpersonateUser = async (id) => {
+    console.log("id check", id);
+
+    const res = await impersonateUser(id);
+    localStorage.setItem("impersonateToken", res.data.token);
+    localStorage.setItem("originalAdmin", authState._id);
+  };
+
+  const switchBackToAdmin = async () => {
+    console.log("check");
+
+    const impersonateToken = localStorage.getItem("impersonateToken");
+    if (!impersonateToken) return;
+
+    const decoded = JSON.parse(atob(impersonateToken.split(".")[1]));
+    const impersonationLogId = decoded.impersonationLogId;
+
+    const res = await switchBack(impersonationLogId);
+
+    // Restore admin token
+    localStorage.setItem("token", res.data.token);
+
+    // Clear impersonation data
+    localStorage.removeItem("impersonateToken");
+    localStorage.removeItem("originalAdmin");
+
+    window.location.reload();
+  };
 
   const getUserData = async () => {
     const response = await getUsers({
       page: currentPage,
       limit,
       search,
-      role :roleFilter,
-      blocked:blockedFilter,
+      role: roleFilter,
+      blocked: blockedFilter,
     });
 
     console.log("response", response);
@@ -126,6 +165,17 @@ const CommanSection = () => {
   return (
     <>
       <div className="page-head">
+        {/* {isImpersonating() && (
+          <div className="impersonation-banner">
+            ⚠ You are impersonating a user
+            <button
+              className="btn btn-light btn-sm fw-semibold"
+              onClick={switchBackToAdmin}
+            >
+              Switch Back
+            </button>
+          </div>
+        )} */}
         <div className="row">
           <div className="col-sm-6 mb-sm-4 mb-3">
             <h3 className="mb-0">Good Morning, {authState?.name} </h3>
@@ -516,6 +566,24 @@ const CommanSection = () => {
                                     >
                                       Edit
                                     </Dropdown.Item>
+
+                                    <Dropdown.Item
+                                      onClick={() =>
+                                        BlockUnBlockUser(data?._id)
+                                      }
+                                    >
+                                      {data.isBlocked ? "Unblock" : "Block"}
+                                    </Dropdown.Item>
+
+                                    {!isImpersonating() && (
+                                      <Dropdown.Item
+                                        onClick={() =>
+                                          PersonateImpersonateUser(data?._id)
+                                        }
+                                      >
+                                        Impersonate
+                                      </Dropdown.Item>
+                                    )}
                                   </Dropdown.Menu>
                                 </Dropdown>
                               </td>

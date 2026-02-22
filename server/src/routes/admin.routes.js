@@ -8,16 +8,41 @@ const {
   toggleBlockUser,
   impersonateUser,
   switchBack,
-  deleteUser
+  deleteUser,
 } = require("../controllers/admin.controller");
 const { getUser } = require("../controllers/auth.controller");
+const activityLogger = require("../middleware/activityLogger");
 
 router.get("/users", protect, isAdmin, getUsers);
 router.post("/users", protect, isAdmin, createUser);
-router.put("/users/:id", protect, isAdmin, updateUser);
-router.delete("/users/:id", protect, isAdmin, deleteUser);
-router.patch("/users/:id/block", protect, isAdmin, toggleBlockUser);
-router.post("/impersonate/:userId", protect, isAdmin, impersonateUser);
-router.post("/switch-back", protect, isAdmin, switchBack);
+router.put(
+  "/users/:id",
+  protect,
+  isAdmin,
+  activityLogger("USER_UPDATED"),
+  updateUser,
+);
+router.delete(
+  "/users/:id",
+  protect,
+  isAdmin,
+  activityLogger("USER_DELETED"),
+  deleteUser,
+);
+router.patch("/users/block/:id", protect, isAdmin, toggleBlockUser);
+router.post(
+  "/impersonate/:id",
+  protect,
+  isAdmin,
+  activityLogger("IMPERSONATION_STARTED"),
+  impersonateUser,
+);
+router.post(
+  "/switch-back/:id",
+  protect,
+  isAdmin,
+  activityLogger("IMPERSONATION_ENDED"),
+  switchBack,
+);
 
 module.exports = router;
