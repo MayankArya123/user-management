@@ -34,7 +34,7 @@ function UiTab() {
 
   return (
     <Fragment>
-      <PageTitle activeMenu="Tab" motherMenu="Bootstrap"  />
+      <PageTitle activeMenu="Tab" motherMenu="Bootstrap" />
       <Row>
         <Col xl={6}>
           <Card>
@@ -118,7 +118,7 @@ function UiTab() {
                             Tab {i === 1 ? "Two" : i === 2 ? "Three" : "One"}
                           </Nav.Link>
                         </Nav.Item>
-                      )
+                      ),
                   )}
                 </Nav>
                 <Tab.Content className="">
@@ -129,7 +129,7 @@ function UiTab() {
                           <p>{data.content}</p>
                           <p>{data.content}</p>
                         </Tab.Pane>
-                      )
+                      ),
                   )}
                 </Tab.Content>
               </Tab.Container>
@@ -152,7 +152,7 @@ function UiTab() {
                             Tab {i === 1 ? "Two" : i === 2 ? "Three" : "One"}
                           </Nav.Link>
                         </Nav.Item>
-                      )
+                      ),
                   )}
                 </Nav>
                 <Tab.Content className="">
@@ -163,7 +163,7 @@ function UiTab() {
                           <p>{data.content}</p>
                           <p>{data.content}</p>
                         </Tab.Pane>
-                      )
+                      ),
                   )}
                 </Tab.Content>
               </Tab.Container>
@@ -260,7 +260,7 @@ function UiTab() {
                             />
                           </Nav.Link>
                         </Nav.Item>
-                      )
+                      ),
                   )}
                 </Nav>
                 <Tab.Content className="pt-4">
@@ -272,7 +272,7 @@ function UiTab() {
                           <p>{data.content}</p>
                           <p>{data.content}</p>
                         </Tab.Pane>
-                      )
+                      ),
                   )}
                 </Tab.Content>
               </Tab.Container>
@@ -282,6 +282,6 @@ function UiTab() {
       </Row>
     </Fragment>
   );
-};
+}
 
 export default UiTab;

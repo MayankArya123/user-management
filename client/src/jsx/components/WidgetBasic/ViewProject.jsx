@@ -25,46 +25,44 @@ class ViewProject extends Component {
           borderColor: this.props.color ? this.props.color : "#430b58",
           borderWidth: "0",
           backgroundColor: this.props.color ? this.props.color : "#430b58",
-		  barThickness : 6
+          barThickness: 6,
         },
       ],
     };
 
     const options = {
-      plugins:{
-		 legend: false,
-		responsive: true, 
-	  },
+      plugins: {
+        legend: false,
+        responsive: true,
+      },
       maintainAspectRatio: false,
       scales: {
-        y: 
-          {
+        y: {
+          display: false,
+          ticks: {
+            beginAtZero: true,
             display: false,
-            ticks: {
-              beginAtZero: true,
-              display: false,
-              max: 100,
-              min: 0,
-              stepSize: 10,
-            },
-            grid: {
-              display: false,
-              drawBorder: false,
-            },
+            max: 100,
+            min: 0,
+            stepSize: 10,
           },
-        
-        x: 
-          {
+          grid: {
             display: false,
-            barPercentage: 0.1,
-            grid: {
-              display: false,
-              drawBorder: false,
-            },
-            ticks: {
-              display: false,
-            },
+            drawBorder: false,
           },
+        },
+
+        x: {
+          display: false,
+          barPercentage: 0.1,
+          grid: {
+            display: false,
+            drawBorder: false,
+          },
+          ticks: {
+            display: false,
+          },
+        },
       },
     };
 

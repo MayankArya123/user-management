@@ -29,44 +29,41 @@ class SalesAnalysis extends Component {
     const options = {
       responsive: true,
       maintainAspectRatio: false,
-      plugins:{
-		  tooltips: {
-			enabled: false,
-		  },
-		  legend: {
-			display: false,
-			labels: {
-			  usePointStyle: false,
-			},
-		  }
-	  },
+      plugins: {
+        tooltips: {
+          enabled: false,
+        },
+        legend: {
+          display: false,
+          labels: {
+            usePointStyle: false,
+          },
+        },
+      },
       scales: {
-        x: 
-          {
+        x: {
+          display: false,
+          gridLines: {
             display: false,
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
-            scaleLabel: {
-              display: false,
-              labelString: "Month",
-            },
+            drawBorder: false,
           },
-        
-        y: 
-          {
+          scaleLabel: {
             display: false,
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
-            scaleLabel: {
-              display: true,
-              labelString: "Value",
-            },
+            labelString: "Month",
           },
-        
+        },
+
+        y: {
+          display: false,
+          gridLines: {
+            display: false,
+            drawBorder: false,
+          },
+          scaleLabel: {
+            display: true,
+            labelString: "Value",
+          },
+        },
       },
       elements: {
         line: {

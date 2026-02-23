@@ -3,8 +3,6 @@ import swal from "sweetalert";
 import { loginConfirmedAction, Logout } from "../store/actions/AuthActions";
 
 export function signUp(name, email, password) {
-  //axios call
-
   const postData = {
     name,
     email,

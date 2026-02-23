@@ -41,14 +41,10 @@ exports.getUsers = async (req, res) => {
 };
 
 exports.createUser = async (req, res) => {
-  console.log("admin create user form hitting", req.body);
-
   try {
     const { password, ...rest } = req.body;
 
     const hashedPassword = await bcrypt.hash(password, 10);
-
-    console.log("hased password", hashedPassword);
 
     const user = await User.create({
       ...rest,
@@ -88,8 +84,6 @@ exports.deleteUser = async (req, res) => {
 };
 
 exports.toggleBlockUser = async (req, res) => {
-  console.log("toggle block user hittting");
-
   try {
     const user = await User.findById(req.params.id);
 
@@ -109,8 +103,6 @@ exports.toggleBlockUser = async (req, res) => {
 
 exports.impersonateUser = async (req, res) => {
   const userId = req.params.id;
-
-  console.log("userId check", userId);
 
   try {
     const targetUser = await User.findById(userId);
@@ -147,10 +139,6 @@ exports.switchBack = async (req, res) => {
       isActive: false,
     });
 
-    console.log("check user", req.user);
-
-    console.log("check", req.user.impersonatedBy);
-
     const admin = await User.findById(req.user.impersonatedBy);
 
     const token = jwt.sign({ id: admin._id }, process.env.JWT_SECRET, {
@@ -162,5 +150,3 @@ exports.switchBack = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
-

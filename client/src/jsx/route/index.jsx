@@ -3,15 +3,13 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { Routes, Route, Outlet } from "react-router-dom";
 import Nav from "../layouts/nav";
 import Footer from "../layouts/Footer";
-// dashboard
+
 import Home from "../pages/dashboard/Home";
 import DashboardDark from "../pages/dashboard/DashboardDark";
 import Dashboard2 from "../pages/dashboard/dashboard-2";
 import Projectpage from "../pages/dashboard/project-page";
 import Contact from "../pages/dashboard/contact";
-import Kanban from "../pages/dashboard/kanban";
-import Message from "../pages/dashboard/message";
-// CMS
+
 import Content from "../pages/cms/content";
 import ContentAdd from "../pages/cms/content-add";
 import Menu from "../pages/cms/menu";
@@ -20,7 +18,7 @@ import AddEmail from "../pages/cms/add-email";
 import Blog from "../pages/cms/blog";
 import AddBlog from "../pages/cms/add-blog";
 import BlogCategory from "../pages/cms/blog-category";
-// Profile
+
 import ProfileOverview from "../pages/profile/profile-overview";
 import ProfileProjects from "../pages/profile/profile-projects";
 import ProfileProjectsDetails from "../pages/profile/profile-projects-details";

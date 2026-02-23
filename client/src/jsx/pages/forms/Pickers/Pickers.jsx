@@ -1,10 +1,10 @@
 import React, { useState, Fragment } from "react";
 import DatePicker from "react-datepicker";
 import PageTitle from "../../../layouts/PageTitle";
-import TimePicker from 'react-time-picker';
+import TimePicker from "react-time-picker";
 import "react-datepicker/dist/react-datepicker.css";
-import 'react-time-picker/dist/TimePicker.css';
-import 'react-clock/dist/Clock.css';
+import "react-time-picker/dist/TimePicker.css";
+import "react-clock/dist/Clock.css";
 
 function Pickers() {
   const [colorChange, setColorChange] = useState("#28475d");
@@ -12,7 +12,7 @@ function Pickers() {
   const [colorChange3, setColorChange3] = useState("#495A69");
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate2, endDate2] = dateRange;
-  const [value, onChange] = useState('10:00');
+  const [value, onChange] = useState("10:00");
   const [startDate, setStartDate] = useState(new Date());
   return (
     <Fragment>
@@ -36,7 +36,9 @@ function Pickers() {
                         dateFormat="2025-05-10"
                         className="border-0 pt-2 bg-transparent clearallselect"
                       />
-                      <div className="icon"><i className="far fa-calendar" /></div>
+                      <div className="icon">
+                        <i className="far fa-calendar" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -50,7 +52,9 @@ function Pickers() {
                         dateFormat="2025-05-11"
                         className="border-0 pt-2 bg-transparent clearallselect"
                       />
-                      <div className="icon"><i className="far fa-calendar" /></div>
+                      <div className="icon">
+                        <i className="far fa-calendar" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -64,7 +68,9 @@ function Pickers() {
                         dateFormat="2025-05-12"
                         className="border-0 pt-2 bg-transparent clearallselect"
                       />
-                      <div className="icon"><i className="far fa-calendar" /></div>
+                      <div className="icon">
+                        <i className="far fa-calendar" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -102,26 +108,79 @@ function Pickers() {
                 <div className="col-md-6 col-xl-3 mb-3">
                   <label className="form-label">Default Clock Picker</label>
                   <div className="input-group clockpicker">
-                    <TimePicker onChange={onChange} value={value} clearIcon clearAriaLabel minutePlaceholder="12" hourPlaceholder="24" className="form-control  pt-2" />
+                    <TimePicker
+                      onChange={onChange}
+                      value={value}
+                      clearIcon
+                      clearAriaLabel
+                      minutePlaceholder="12"
+                      hourPlaceholder="24"
+                      className="form-control  pt-2"
+                    />
                   </div>
                 </div>
                 <div className="col-md-6 col-xl-3 mb-3">
-                  <label className="form-label">Auto btn-close Clock Picker</label>
-                  <div className="input-group clockpicker" data-placement="bottom" data-align="top" data-autobtn-close="true">
-                    <TimePicker onChange={onChange} value={value} clearIcon clearAriaLabel minutePlaceholder="12" hourPlaceholder="24" className="form-control pt-2" />
+                  <label className="form-label">
+                    Auto btn-close Clock Picker
+                  </label>
+                  <div
+                    className="input-group clockpicker"
+                    data-placement="bottom"
+                    data-align="top"
+                    data-autobtn-close="true"
+                  >
+                    <TimePicker
+                      onChange={onChange}
+                      value={value}
+                      clearIcon
+                      clearAriaLabel
+                      minutePlaceholder="12"
+                      hourPlaceholder="24"
+                      className="form-control pt-2"
+                    />
                   </div>
                 </div>
                 <div className="col-md-6 col-xl-3 mb-3">
                   <label className="form-label">Now time</label>
                   <div className="input-group">
-                    <TimePicker align="left" onChange={onChange} value={value} clearIcon clearAriaLabel minutePlaceholder="12" hourPlaceholder="24" className="form-control pt-2" clockIcon="" />
-                    <button type="button" id="check-minutes" className="btn waves-effect waves-light btn-ft btn-success">Check the minutes</button>
+                    <TimePicker
+                      align="left"
+                      onChange={onChange}
+                      value={value}
+                      clearIcon
+                      clearAriaLabel
+                      minutePlaceholder="12"
+                      hourPlaceholder="24"
+                      className="form-control pt-2"
+                      clockIcon=""
+                    />
+                    <button
+                      type="button"
+                      id="check-minutes"
+                      className="btn waves-effect waves-light btn-ft btn-success"
+                    >
+                      Check the minutes
+                    </button>
                   </div>
                 </div>
                 <div className="col-md-6 col-xl-3">
                   <label className="form-label">Left Placement</label>
-                  <div className="input-group clockpicker" data-placement="left" data-align="top" data-autobtn-close="true">
-                    <TimePicker align="left" onChange={onChange} value={value} clearIcon clearAriaLabel minutePlaceholder="12" hourPlaceholder="24" className="form-control pt-2" />
+                  <div
+                    className="input-group clockpicker"
+                    data-placement="left"
+                    data-align="top"
+                    data-autobtn-close="true"
+                  >
+                    <TimePicker
+                      align="left"
+                      onChange={onChange}
+                      value={value}
+                      clearIcon
+                      clearAriaLabel
+                      minutePlaceholder="12"
+                      hourPlaceholder="24"
+                      className="form-control pt-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -136,7 +195,6 @@ function Pickers() {
             </div>
             <div className="card-body">
               <div className="row">
-
                 <div className="col-xl-4 col-lg-6 mb-3">
                   <div className="example style-1">
                     <p className="form-label d-block">Simple mode</p>
@@ -156,7 +214,6 @@ function Pickers() {
                       className="as_colorpicker asColorPicker-trigger border-0"
                       value={colorChange2}
                       onChange={(e) => setColorChange2(e.target.value)}
-
                     />
                   </div>
                 </div>
@@ -168,7 +225,6 @@ function Pickers() {
                       className="as_colorpicker asColorPicker-trigger border-0"
                       value={colorChange3}
                       onChange={(e) => setColorChange3(e.target.value)}
-
                     />
                   </div>
                 </div>

@@ -1,5 +1,5 @@
-import React from "react"; 
-import { Row, Col, Card } from "react-bootstrap"; 
+import React from "react";
+import { Row, Col, Card } from "react-bootstrap";
 import PageTitle from "../../../layouts/PageTitle";
 import BarChart1 from "../../../components/charts/Chartjs/bar1";
 import BarChart5 from "../../../components/charts/Chartjs/bar5";
@@ -8,8 +8,8 @@ import LineChart1 from "../../../components/charts/Chartjs/line1";
 import DualLine from "../../../components/charts/Chartjs/dualLine";
 import BasicArea from "../../../components/charts/Chartjs/basicArea";
 import GradientArea from "../../../components/charts/Chartjs/gradinetArea";
-import DualArea from "../../../components/charts/Chartjs/dualArea"; 
-import PolarChart from "../../../components/charts/Chartjs/polar"; 
+import DualArea from "../../../components/charts/Chartjs/dualArea";
+import PolarChart from "../../../components/charts/Chartjs/polar";
 import ChartPie from "../../../components/charts/Chartjs/pie";
 
 function ChartChartjs() {

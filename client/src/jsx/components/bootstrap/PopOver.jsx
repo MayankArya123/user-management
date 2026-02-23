@@ -54,29 +54,34 @@ function UiPopOver() {
                             ? "right"
                             : placement.toLowerCase()
                           : width < 700
-                          ? placement === "Right"
-                            ? "top"
-                            : width < 385
-                            ? placement === "Left"
-                              ? "bottom"
-                              : placement.toLowerCase()
+                            ? placement === "Right"
+                              ? "top"
+                              : width < 385
+                                ? placement === "Left"
+                                  ? "bottom"
+                                  : placement.toLowerCase()
+                                : placement.toLowerCase()
                             : placement.toLowerCase()
-                          : placement.toLowerCase()
                       }
                       responsive={true}
                       overlay={
-                        <Tooltip className='toltip-popover popover bs-popover-auto'
-                            id={`popover-positioned-${placement.toLowerCase()}`}
-                          >
-                          <h3 className='popover-header'>{`Popover on ${placement}`}</h3> 
+                        <Tooltip
+                          className="toltip-popover popover bs-popover-auto"
+                          id={`popover-positioned-${placement.toLowerCase()}`}
+                        >
+                          <h3 className="popover-header">{`Popover on ${placement}`}</h3>
                           <div className="popover-body text-center border-transparent">
                             Lorem ipsum dolor sit amet, consectetur <br />
                             adipisicing elit, sed do eiusmod tempor.
                           </div>
-                        </Tooltip>  
+                        </Tooltip>
                       }
                     >
-                      <Button variant="primary" size="sm" className="me-2 mt-3 px-4">
+                      <Button
+                        variant="primary"
+                        size="sm"
+                        className="me-2 mt-3 px-4"
+                      >
                         {placement}
                       </Button>
                     </OverlayTrigger>
@@ -89,6 +94,6 @@ function UiPopOver() {
       </Row>
     </div>
   );
-};
+}
 
 export default UiPopOver;

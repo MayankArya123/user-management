@@ -14,8 +14,8 @@ const ProfileDatatable = () => {
   const jobData = useRef(
     data.profileTable.data.slice(
       activePag.current * sort,
-      (activePag.current + 1) * sort
-    )
+      (activePag.current + 1) * sort,
+    ),
   );
   //const [demo, setdemo] = useState();
   const onClick = (i) => {
@@ -23,7 +23,7 @@ const ProfileDatatable = () => {
 
     jobData.current = data.profileTable.data.slice(
       activePag.current * sort,
-      (activePag.current + 1) * sort
+      (activePag.current + 1) * sort,
     );
     /* setdemo(
       data.profileTable.data.slice(
@@ -41,11 +41,16 @@ const ProfileDatatable = () => {
         <div className="card-body">
           <div className="w-100 table-responsive">
             <div id="example_wrapper" className="dataTables_wrapper">
-              <table id="example" className="display w-100 dataTable text-nowrap">
+              <table
+                id="example"
+                className="display w-100 dataTable text-nowrap"
+              >
                 <thead>
                   <tr role="row">
                     {data.profileTable.columns.map((d, i) => (
-                      <th key={i} className="c-pointer">{d}</th>
+                      <th key={i} className="c-pointer">
+                        {d}
+                      </th>
                     ))}
                   </tr>
                 </thead>
@@ -54,7 +59,7 @@ const ProfileDatatable = () => {
                     <tr key={i}>
                       {d.map((da, i) => (
                         <Fragment key={i}>
-                          <td >
+                          <td>
                             {i === 0 ? (
                               <img
                                 className="rounded-circle"
@@ -105,19 +110,46 @@ const ProfileDatatable = () => {
                     : data.length}{" "}
                   of {data.length} entries
                 </div>
-                <div className="dataTables_paginate paging_simple_numbers" id="example5_paginate" >
-                  <Link className="paginate_button previous disabled" to="#" onClick={() => activePag.current > 0 && onClick(activePag.current - 1)}>
-                    <i className="fa fa-angle-double-left" aria-hidden="true"></i>
+                <div
+                  className="dataTables_paginate paging_simple_numbers"
+                  id="example5_paginate"
+                >
+                  <Link
+                    className="paginate_button previous disabled"
+                    to="#"
+                    onClick={() =>
+                      activePag.current > 0 && onClick(activePag.current - 1)
+                    }
+                  >
+                    <i
+                      className="fa fa-angle-double-left"
+                      aria-hidden="true"
+                    ></i>
                   </Link>
                   <span>
                     {paggination.map((number, i) => (
-                      <Link key={i} to="#" className={`paginate_button next ${activePag.current === i ? "current" : ""}`} onClick={() => onClick(i)}>
+                      <Link
+                        key={i}
+                        to="#"
+                        className={`paginate_button next ${activePag.current === i ? "current" : ""}`}
+                        onClick={() => onClick(i)}
+                      >
                         {number}
                       </Link>
                     ))}
                   </span>
-                  <Link className="paginate_button next" to="#" onClick={() => activePag.current + 1 < paggination.length && onClick(activePag.current + 1)}>
-                    <i className="fa fa-angle-double-right" aria-hidden="true"></i>
+                  <Link
+                    className="paginate_button next"
+                    to="#"
+                    onClick={() =>
+                      activePag.current + 1 < paggination.length &&
+                      onClick(activePag.current + 1)
+                    }
+                  >
+                    <i
+                      className="fa fa-angle-double-right"
+                      aria-hidden="true"
+                    ></i>
                   </Link>
                 </div>
               </div>

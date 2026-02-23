@@ -19,27 +19,27 @@ import { Link } from "react-router-dom";
 function BootstrapTable() {
   const chackboxFun = (type) => {
     setTimeout(() => {
-        const motherChackBox = document.querySelector(".bs_exam_topper_all");
-        const chackbox = document.querySelectorAll(".bs_exam_topper");
-        for (let i = 0; i < chackbox.length; i++) {
-            const element = chackbox[i];
-            if (type === "all") {
-                if (motherChackBox.checked) {
-                    element.checked = true;
-                } else {
-                    element.checked = false;
-                }
-            } else {
-                if (!element.checked) {
-                    motherChackBox.checked = false;
-                    break;
-                } else {
-                    motherChackBox.checked = true;
-                }
-            }
+      const motherChackBox = document.querySelector(".bs_exam_topper_all");
+      const chackbox = document.querySelectorAll(".bs_exam_topper");
+      for (let i = 0; i < chackbox.length; i++) {
+        const element = chackbox[i];
+        if (type === "all") {
+          if (motherChackBox.checked) {
+            element.checked = true;
+          } else {
+            element.checked = false;
+          }
+        } else {
+          if (!element.checked) {
+            motherChackBox.checked = false;
+            break;
+          } else {
+            motherChackBox.checked = true;
+          }
         }
+      }
     }, 100);
-};
+  };
   const svg1 = (
     <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1">
       <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -580,7 +580,9 @@ function BootstrapTable() {
                       <ProgressBar now={70} variant="primary" />
                     </td>
                     <td className="text-end">
-                      <Badge bg="" className="badge-primary light">70%</Badge>
+                      <Badge bg="" className="badge-primary light">
+                        70%
+                      </Badge>
                     </td>
                   </tr>
                   <tr>
@@ -590,7 +592,9 @@ function BootstrapTable() {
                       <ProgressBar variant="success" now="70" />
                     </td>
                     <td className="text-end">
-                      <Badge bg="" className="badge-success ">70%</Badge>
+                      <Badge bg="" className="badge-success ">
+                        70%
+                      </Badge>
                     </td>
                   </tr>
                   <tr>
@@ -600,7 +604,9 @@ function BootstrapTable() {
                       <ProgressBar variant="dark" now="70" />
                     </td>
                     <td className="text-end">
-                      <Badge bg="" className="badge-dark light">70%</Badge>
+                      <Badge bg="" className="badge-dark light">
+                        70%
+                      </Badge>
                     </td>
                   </tr>
                   <tr>
@@ -610,7 +616,9 @@ function BootstrapTable() {
                       <ProgressBar variant="danger" now="70" />
                     </td>
                     <td className="text-end">
-                      <Badge bg="" className="text-danger light">70%</Badge>
+                      <Badge bg="" className="text-danger light">
+                        70%
+                      </Badge>
                     </td>
                   </tr>
                   <tr>
@@ -620,7 +628,9 @@ function BootstrapTable() {
                       <ProgressBar variant="warning" now="70" />
                     </td>
                     <td className="text-end">
-                      <Badge bg="" className="badge-warning light">70%</Badge>
+                      <Badge bg="" className="badge-warning light">
+                        70%
+                      </Badge>
                     </td>
                   </tr>
                 </tbody>
@@ -634,7 +644,11 @@ function BootstrapTable() {
               <Card.Title>Bordered Table</Card.Title>
             </Card.Header>
             <Card.Body>
-              <Table responsive bordered className="verticle-middle text-nowrap">
+              <Table
+                responsive
+                bordered
+                className="verticle-middle text-nowrap"
+              >
                 <thead>
                   <tr>
                     <th scope="col">Task</th>
@@ -776,7 +790,12 @@ function BootstrapTable() {
               <Card.Title>Table Stripped</Card.Title>
             </Card.Header>
             <Card.Body>
-              <Table responsive striped bordered className="verticle-middle text-nowrap">
+              <Table
+                responsive
+                striped
+                bordered
+                className="verticle-middle text-nowrap"
+              >
                 <thead>
                   <tr>
                     <th scope="col">Task</th>
@@ -981,7 +1000,7 @@ function BootstrapTable() {
                       <span className="text-muted">Apr 28, 2017</span>
                     </td>
                     <td>$77.99</td>
-                    <td >
+                    <td>
                       <Badge bg="success">Paid</Badge>
                     </td>
                     <td className="text-end">FR</td>
@@ -1138,7 +1157,7 @@ function BootstrapTable() {
                     <th>#</th>
                     <th>Column heading</th>
                     <th>Column heading</th>
-                    <th >Column heading</th>
+                    <th>Column heading</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1146,7 +1165,7 @@ function BootstrapTable() {
                     <td>1</td>
                     <td>Column content</td>
                     <td>Column content</td>
-                    <td  className="text-end">Column content</td>
+                    <td className="text-end">Column content</td>
                   </tr>
                   <tr className="table-primary">
                     <td>1</td>
@@ -1186,6 +1205,6 @@ function BootstrapTable() {
       </Row>
     </Fragment>
   );
-};
+}
 
 export default BootstrapTable;

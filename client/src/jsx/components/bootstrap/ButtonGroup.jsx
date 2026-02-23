@@ -13,7 +13,7 @@ import {
 function UiButtonGroup() {
   return (
     <Fragment>
-      <PageTitle activeMenu="Button Group"  motherMenu="Bootstrap" />
+      <PageTitle activeMenu="Button Group" motherMenu="Bootstrap" />
       <Row>
         <Col xl="6">
           <Card>
@@ -182,6 +182,6 @@ function UiButtonGroup() {
       </Row>
     </Fragment>
   );
-};
+}
 
 export default UiButtonGroup;

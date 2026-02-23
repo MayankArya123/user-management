@@ -15,11 +15,11 @@ const TotalStudent = () => {
   };
 
   const options = {
-    plugins:{
-		legend: false,
-	},
-	responsive: true,
-    
+    plugins: {
+      legend: false,
+    },
+    responsive: true,
+
     maintainAspectRatio: false,
   };
 

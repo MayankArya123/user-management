@@ -46,7 +46,7 @@ function EditProfile() {
 
   const getUserByData = async (userId) => {
     const response = await getSpecificUser(userId);
-    console.log("response check", response);
+    // console.log("response check", response);
 
     setFormData({
       name: response?.data?.name || "",
@@ -83,14 +83,12 @@ function EditProfile() {
     if (formData.bio !== authState.bio) data.append("bio", formData.bio);
 
     if (image) {
-      console.log("check image", image);
       data.append("profilePicture", image);
     }
 
     for (let pair of data.entries()) {
       console.log(pair[0], pair[1]);
     }
-    console.log("updated data check", data);
 
     const result = await dispatch(updateUserAction(id, data, navigate));
   };

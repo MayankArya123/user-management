@@ -52,10 +52,7 @@
 
 */
 
-
-
 @use "sass:math";
-
 
 ////////////////////
 // Abstracts
@@ -75,35 +72,27 @@
 
 @import "./preloader";
 
-
 ////////////////////
 // Components
 ////////////////////
 @import "./layout/layout";
-
 
 ////////////////////
 // Components
 ////////////////////
 @import "./components/components";
 
-
 ////////////////////
 // All pages
 ////////////////////
 @import "./pages/pages";
-
-
-
 
 ////////////////////
 // Version Color
 ////////////////////
 @import "./layout/version-dark/main";
 
-
 ////////////////////
 // RTL
 ////////////////////
 //@import "./layout/rtl/rtl";
-

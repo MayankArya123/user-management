@@ -88,7 +88,7 @@ function UiProgressBar() {
                       key={i}
                       className="mt-3"
                     />
-                  )
+                  ),
               )}
             </Card.Body>
           </Card>
@@ -114,7 +114,7 @@ function UiProgressBar() {
                       className="mt-3"
                       striped
                     />
-                  )
+                  ),
               )}
             </Card.Body>
           </Card>
@@ -147,7 +147,7 @@ function UiProgressBar() {
                         variant={data.variant}
                       />
                     </ProgressBar>
-                  )
+                  ),
               )}
             </Card.Body>
           </Card>
@@ -180,7 +180,7 @@ function UiProgressBar() {
                         variant={data.variant}
                       />
                     </ProgressBar>
-                  )
+                  ),
               )}
             </Card.Body>
           </Card>
@@ -213,7 +213,7 @@ function UiProgressBar() {
                         variant={data.variant}
                       />
                     </ProgressBar>
-                  )
+                  ),
               )}
             </Card.Body>
           </Card>
@@ -237,7 +237,7 @@ function UiProgressBar() {
                       key={i}
                       className="mt-3"
                     />
-                  )
+                  ),
               )}{" "}
             </Card.Body>
           </Card>
@@ -275,6 +275,6 @@ function UiProgressBar() {
       </Row>
     </Fragment>
   );
-};
+}
 
 export default UiProgressBar;

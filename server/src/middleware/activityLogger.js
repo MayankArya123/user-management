@@ -1,4 +1,4 @@
-const ActivityLog = require('../models/ActivityLogModel')
+const ActivityLog = require("../models/ActivityLogModel");
 
 const activityLogger = (action) => {
   return async (req, res, next) => {
@@ -16,4 +16,4 @@ const activityLogger = (action) => {
   };
 };
 
-module.exports = activityLogger
+module.exports = activityLogger;

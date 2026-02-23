@@ -236,6 +236,6 @@ function UiGrid() {
       </Row>
     </Fragment>
   );
-};
+}
 
 export default UiGrid;

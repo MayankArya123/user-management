@@ -9,7 +9,11 @@ import PatientTable from "./PatientTable";
 const DataTable = () => {
   return (
     <Fragment>
-      <PageTitle activeMenu="Datatable" motherMenu="Table" pageContent="Datatable" />
+      <PageTitle
+        activeMenu="Datatable"
+        motherMenu="Table"
+        pageContent="Datatable"
+      />
       <div className="row">
         <BasicDatatable />
         <SimpleDataTable />

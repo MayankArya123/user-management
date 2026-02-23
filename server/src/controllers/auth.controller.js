@@ -11,8 +11,6 @@ const generateToken = (id, role) => {
 exports.signup = async (req, res) => {
   const { name, email, password } = req.body;
 
-  console.log("name email password", name, email, password);
-
   const existing = await User.findOne({ email });
   if (existing)
     return res.status(400).json({ message: "Email already exists" });
@@ -49,8 +47,6 @@ exports.login = async (req, res) => {
 };
 
 exports.getUser = async (req, res) => {
-
-  console.log('get user route hitting')
   const user = req.user;
 
   res.json({

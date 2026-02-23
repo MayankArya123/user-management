@@ -44,18 +44,11 @@ export function loginAction(email, password, navigate) {
   return (dispatch) => {
     login(email, password)
       .then((response) => {
-        console.log("response", response);
+        // console.log("response", response);
         saveTokenInLocalStorage(response.data?.token);
-        //     runLogoutTimer(
-        //         dispatch,
-        //         response.data.expiresIn * 1000,
-        //         navigate,
-        //     );
-        //    dispatch(loginConfirmedAction(response.data));
-        navigate("/dashboard");
       })
       .catch((error) => {
-        console.log("error", error);
+        // console.log("error", error);
         const errorMessage = formatError(error.response.data);
         dispatch(loginFailedAction(errorMessage));
       });
@@ -70,7 +63,7 @@ export function loginFailedAction(data) {
 }
 
 export function loginConfirmedAction(data) {
-  console.log("check data ", data);
+  // console.log("check data ", data);
   return {
     type: LOGIN_CONFIRMED_ACTION,
     payload: data,
@@ -109,7 +102,7 @@ export function updateUserAction(userId, data, navigate) {
   return (dispatch) => {
     updateUser(userId, data)
       .then((response) => {
-        console.log("user updated", response);
+        // console.log("user updated", response);
         if (response?.status === 200) {
           alert("user updated");
           navigate("/dashboard");

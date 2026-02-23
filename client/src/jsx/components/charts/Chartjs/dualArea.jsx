@@ -11,8 +11,8 @@ const data = {
       borderColor: "rgba(0, 161, 93, 1)",
       borderWidth: "1",
       backgroundColor: "rgba(0, 161, 93, .1)",
-	  tension:0.4,
-	  fill:true
+      tension: 0.4,
+      fill: true,
     },
     {
       label: "My First dataset",
@@ -20,41 +20,38 @@ const data = {
       borderColor: "rgba(0,115,255,1)",
       borderWidth: "1",
       backgroundColor: "rgba(0,115,255, .5)",
-	  tension:0.4,
-	  fill:true
+      tension: 0.4,
+      fill: true,
     },
   ],
 };
 
 const options = {
-  plugins:{
-	  legend: false,
+  plugins: {
+    legend: false,
   },
   scales: {
-    y: 
-      {
-		  max: 100,
-          min: 0,
-        ticks: {
-          beginAtZero: true,
-          stepSize: 20,
-          padding: 10,
-        },
+    y: {
+      max: 100,
+      min: 0,
+      ticks: {
+        beginAtZero: true,
+        stepSize: 20,
+        padding: 10,
       },
-    
-    x: 
-      {
-        ticks: {
-          padding: 5,
-        },
+    },
+
+    x: {
+      ticks: {
+        padding: 5,
       },
-    
+    },
   },
 };
 class DualArea extends Component {
   render() {
     return (
-      <div >
+      <div>
         <Line data={data} options={options} height={150} />
       </div>
     );

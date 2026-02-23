@@ -3,16 +3,34 @@ import { createContext, useEffect, useState } from "react";
 export const ThemeContext = createContext();
 
 const ThemeContextProvider = (props) => {
-  const [sideBarStyle, setSideBarStyle] = useState({ value: "full", label: "Full", });
-  const [sidebarposition, setSidebarposition] = useState({ value: "fixed", label: "Fixed", });
-  const [headerposition, setHeaderposition] = useState({ value: "fixed", label: "Fixed", });
-  const [sidebarLayout, setSidebarLayout] = useState({ value: "vertical", label: "Vertical", }); 
-  
+  const [sideBarStyle, setSideBarStyle] = useState({
+    value: "full",
+    label: "Full",
+  });
+  const [sidebarposition, setSidebarposition] = useState({
+    value: "fixed",
+    label: "Fixed",
+  });
+  const [headerposition, setHeaderposition] = useState({
+    value: "fixed",
+    label: "Fixed",
+  });
+  const [sidebarLayout, setSidebarLayout] = useState({
+    value: "vertical",
+    label: "Vertical",
+  });
+
   const [iconHover, setIconHover] = useState(false);
   const [sidebariconHover, setSidebariconHover] = useState(false);
   const [menuToggle, setMenuToggle] = useState(false);
-  const [background, setBackground] = useState({ value: "light", label: "Light", });
-  const [containerPosition_, setcontainerPosition_] = useState({ value: "wide-boxed", label: "Wide Boxed", });
+  const [background, setBackground] = useState({
+    value: "light",
+    label: "Light",
+  });
+  const [containerPosition_, setcontainerPosition_] = useState({
+    value: "wide-boxed",
+    label: "Wide Boxed",
+  });
   const body = document.querySelector("body");
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
@@ -21,7 +39,7 @@ const ThemeContextProvider = (props) => {
     setSidebarposition(name);
     body.setAttribute("data-sidebar-position", name.value);
   };
-  
+
   const changeSideBarLayout = (name) => {
     if (name.value === "horizontal") {
       if (sideBarStyle.value === "overlay") {
@@ -62,7 +80,7 @@ const ThemeContextProvider = (props) => {
         setSidebariconHover(false);
       }
     }
-  }
+  };
 
   const changeHeaderPostion = (name) => {
     setHeaderposition(name);
@@ -86,9 +104,9 @@ const ThemeContextProvider = (props) => {
     name.value === "boxed" &&
       changeSideBarStyle({ value: "overlay", label: "Overlay" });
   };
- 
+
   useEffect(() => {
-    const body = document.querySelector("body");    
+    const body = document.querySelector("body");
     let resizeWindow = () => {
       setWindowWidth(window.innerWidth);
       setWindowHeight(window.innerHeight);
@@ -106,31 +124,29 @@ const ThemeContextProvider = (props) => {
   return (
     <ThemeContext.Provider
       value={{
-        body,        
-        sidebarposition,   
+        body,
+        sidebarposition,
         windowWidth,
         windowHeight,
         changeSideBarStyle,
         sideBarStyle,
-        changeSideBarPostion,        
+        changeSideBarPostion,
         changeHeaderPostion,
         headerposition,
         changeSideBarLayout,
-        sidebarLayout,        
-        changeContainerPosition,            
-        
+        sidebarLayout,
+        changeContainerPosition,
+
         iconHover,
         ChangeIconSidebar,
         sidebariconHover,
         menuToggle,
         openMenuToggle,
-        changeBackground,        
+        changeBackground,
         background,
         containerPosition_,
-        
       }}
     >
-
       {props.children}
     </ThemeContext.Provider>
   );

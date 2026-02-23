@@ -1,6 +1,6 @@
-import React from "react"; 
-import { Row, Col, Card } from "react-bootstrap"; 
-import PageTitle from "../../../layouts/PageTitle"; 
+import React from "react";
+import { Row, Col, Card } from "react-bootstrap";
+import PageTitle from "../../../layouts/PageTitle";
 import BarChartNoPadding from "../../../components/charts/rechart/BarChartNoPadding";
 import NagetivePositive from "../../../components/charts/rechart/PositiveNagative2";
 import TinyLineChart from "../../../components/charts/rechart/TinyLineChart";
@@ -14,7 +14,7 @@ function RechartJs() {
         <Col xl={6} lg={6}>
           <Card>
             <Card.Header>
-				<h4 className="card-title">Bar</h4>
+              <h4 className="card-title">Bar</h4>
             </Card.Header>
             <Card.Body>
               <BarChartNoPadding />

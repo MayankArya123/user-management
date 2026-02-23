@@ -13,47 +13,44 @@ class PowerBar extends Component {
           borderWidth: "0",
           backgroundColor: "rgba(255, 255, 255, .8)",
           hoverBackgroundColor: "rgba(255, 255, 255, .8)",
-		  barThickness : 40
+          barThickness: 40,
         },
       ],
     };
 
     const options = {
-      plugins:{
-		  legend: false,
-		responsive: true
-	  },
+      plugins: {
+        legend: false,
+        responsive: true,
+      },
       maintainAspectRatio: false,
       scales: {
-        y: 
-          {
+        y: {
+          display: false,
+          ticks: {
+            beginAtZero: true,
             display: false,
-            ticks: {
-              beginAtZero: true,
-              display: false,
-              max: 100,
-              min: 0,
-              stepSize: 10,
-            },
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
+            max: 100,
+            min: 0,
+            stepSize: 10,
           },
-        
-        x: 
-          {
+          gridLines: {
             display: false,
-            barPercentage: 0.5,
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
-            ticks: {
-              display: false,
-            },
+            drawBorder: false,
           },
-        
+        },
+
+        x: {
+          display: false,
+          barPercentage: 0.5,
+          gridLines: {
+            display: false,
+            drawBorder: false,
+          },
+          ticks: {
+            display: false,
+          },
+        },
       },
     };
 

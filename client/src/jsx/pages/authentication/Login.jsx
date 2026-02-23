@@ -52,8 +52,8 @@ function Login(props) {
           </div>
           <h3 className="mb-2">Welcome back!</h3>
           <p>
-            User Experience & Interface Design <br />
-            Strategy SaaS Solutions
+            User Management Portal
+            <br />
           </p>
         </div>
         <div

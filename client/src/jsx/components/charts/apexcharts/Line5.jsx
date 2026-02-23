@@ -62,9 +62,23 @@ class ApexLine5 extends React.Component {
           },
         },
         xaxis: {
-			categories: ["Jan","Feb","Mar","Apr","May","Jun","Jul",
-				"Aug","Sep","Oct","Nov","Dec","10 Jan","11 Jan","12 Jan",
-			],
+          categories: [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+            "10 Jan",
+            "11 Jan",
+            "12 Jan",
+          ],
         },
         yaxis: {
           labels: {

@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 import PageTitle from "../../layouts/PageTitle";
 import { Row, Col, Card } from "react-bootstrap";
 
@@ -84,8 +84,9 @@ function UiTypography() {
                     <p>
                       Use tags{" "}
                       <code>
-                        text-sm-start, text-md-start, text-lg-start, text-xl-starthis is an example of primary text. Add class
-
+                        text-sm-start, text-md-start, text-lg-start,
+                        text-xl-starthis is an example of primary text. Add
+                        class
                       </code>{" "}
                       for get desire text.
                     </p>
@@ -112,9 +113,8 @@ function UiTypography() {
                       Font weight and italics
                     </h4>
                     <p>
-                      Use tags{" "}
-                      <code> fw-normal, fw-italic</code> for
-                      get desire text.
+                      Use tags <code> fw-normal, fw-italic</code> for get desire
+                      text.
                     </p>
                   </div>
                   <div className="card-content">
@@ -372,6 +372,6 @@ function UiTypography() {
       </Row>
     </Fragment>
   );
-};
+}
 
 export default UiTypography;

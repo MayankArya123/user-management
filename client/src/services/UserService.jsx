@@ -7,8 +7,6 @@ export const getUsers = async ({
   role,
   blocked,
 }) => {
-  console.log("role check", role);
-
   const response = await axiosInstance.get("/api/admin/users", {
     params: { page, limit, search, role, blocked },
   });

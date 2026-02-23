@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const PatientTable = () => {
   const [data, setData] = useState(
-    document.querySelectorAll("#patientTable_basic_table tbody tr")
+    document.querySelectorAll("#patientTable_basic_table tbody tr"),
   );
   const sort = 5;
   const activePag = useRef(0);
@@ -825,19 +825,46 @@ const PatientTable = () => {
                     : data.length}{" "}
                   of {data.length} entries
                 </div>
-                <div className="dataTables_paginate paging_simple_numbers" id="example5_paginate" >
-                  <Link className="paginate_button previous disabled" to="#" onClick={() => activePag.current > 0 && onClick(activePag.current - 1)}>
-                    <i className="fa fa-angle-double-left" aria-hidden="true"></i>
+                <div
+                  className="dataTables_paginate paging_simple_numbers"
+                  id="example5_paginate"
+                >
+                  <Link
+                    className="paginate_button previous disabled"
+                    to="#"
+                    onClick={() =>
+                      activePag.current > 0 && onClick(activePag.current - 1)
+                    }
+                  >
+                    <i
+                      className="fa fa-angle-double-left"
+                      aria-hidden="true"
+                    ></i>
                   </Link>
                   <span>
                     {paggination.map((number, i) => (
-                      <Link key={i} to="#" className={`paginate_button next ${activePag.current === i ? "current" : ""}`} onClick={() => onClick(i)}>
+                      <Link
+                        key={i}
+                        to="#"
+                        className={`paginate_button next ${activePag.current === i ? "current" : ""}`}
+                        onClick={() => onClick(i)}
+                      >
                         {number}
                       </Link>
                     ))}
                   </span>
-                  <Link className="paginate_button next" to="#" onClick={() => activePag.current + 1 < paggination.length && onClick(activePag.current + 1)}>
-                    <i className="fa fa-angle-double-right" aria-hidden="true"></i>
+                  <Link
+                    className="paginate_button next"
+                    to="#"
+                    onClick={() =>
+                      activePag.current + 1 < paggination.length &&
+                      onClick(activePag.current + 1)
+                    }
+                  >
+                    <i
+                      className="fa fa-angle-double-right"
+                      aria-hidden="true"
+                    ></i>
                   </Link>
                 </div>
               </div>

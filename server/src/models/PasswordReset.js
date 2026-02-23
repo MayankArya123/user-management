@@ -16,7 +16,7 @@ const passwordResetSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 passwordResetSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });

@@ -281,7 +281,8 @@ function FormValidation() {
                               name="val-terms"
                               value="1"
                             />
-                            <span className="css-control-indicator"></span> Agree to terms and conditions
+                            <span className="css-control-indicator"></span>{" "}
+                            Agree to terms and conditions
                           </label>
                         </div>
                       </div>
@@ -334,11 +335,13 @@ function FormValidation() {
                             : ""
                         }`}
                       >
-                        <label className="text-label form-label required">Username </label>
+                        <label className="text-label form-label required">
+                          Username{" "}
+                        </label>
                         <div className="input-group">
-                            <span className="input-group-text ">
-                              <i className="fa fa-user" />{" "}
-                            </span>
+                          <span className="input-group-text ">
+                            <i className="fa fa-user" />{" "}
+                          </span>
                           <input
                             type="text"
                             className="form-control"
@@ -373,14 +376,15 @@ function FormValidation() {
                             : ""
                         }`}
                       >
-                        <label className="text-label form-label required">Password </label>
+                        <label className="text-label form-label required">
+                          Password{" "}
+                        </label>
                         <div className="input-group transparent-append mb-2">
-                          
-                            <span className="input-group-text">
-                              {" "}
-                              <i className="fa fa-lock" />{" "}
-                            </span>
-                          
+                          <span className="input-group-text">
+                            {" "}
+                            <i className="fa fa-lock" />{" "}
+                          </span>
+
                           <input
                             type={`${showPassword ? "text" : "password"}`}
                             className="form-control"
@@ -396,10 +400,12 @@ function FormValidation() {
                             className="input-group-text show-validate"
                             onClick={() => setShowPassword(!showPassword)}
                           >
-
-                              {" "}
-                                {showPassword === false ? (<i className="fa fa-eye-slash" />) : (<i className="fa fa-eye" />)}
-                            
+                            {" "}
+                            {showPassword === false ? (
+                              <i className="fa fa-eye-slash" />
+                            ) : (
+                              <i className="fa fa-eye" />
+                            )}
                           </div>
                           <div
                             id="val-username1-error"
@@ -427,7 +433,7 @@ function FormValidation() {
                         </div>
                       </div>
 
-                      <button  className="btn btn-danger light me-2">
+                      <button className="btn btn-danger light me-2">
                         Cancel
                       </button>
                       <button
@@ -447,6 +453,6 @@ function FormValidation() {
       </div>
     </Fragment>
   );
-};
+}
 
 export default FormValidation;

@@ -1,2 +1,1 @@
-export const GET_USER = '[User Action] Get User';
-
+export const GET_USER = "[User Action] Get User";

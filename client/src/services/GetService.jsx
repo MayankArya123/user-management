@@ -1,6 +1,5 @@
-import axiosInstance from './AxiosInstance';
+import axiosInstance from "./AxiosInstance";
 
 export function getUser() {
-    return axiosInstance.get(`/api/users/me`);
+  return axiosInstance.get(`/api/users/me`);
 }
-

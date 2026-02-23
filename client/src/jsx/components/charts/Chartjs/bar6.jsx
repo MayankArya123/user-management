@@ -28,28 +28,26 @@ class BarChart6 extends Component {
       ],
     };
     const options = {
-      plugins:{
-		  legend: {
-			display: false,
-		  },
-		  title: {
-			display: false,
-		  },
-		  tooltips: {
-			mode: "index",
-			intersect: false,
-		  },
-		  responsive: true,
-	  },
+      plugins: {
+        legend: {
+          display: false,
+        },
+        title: {
+          display: false,
+        },
+        tooltips: {
+          mode: "index",
+          intersect: false,
+        },
+        responsive: true,
+      },
       scales: {
-        x:
-          {
-            stacked: true,
-          },
-        y:
-          {
-            stacked: true,
-          },
+        x: {
+          stacked: true,
+        },
+        y: {
+          stacked: true,
+        },
       },
     };
 

@@ -15,49 +15,46 @@ class AllSell1 extends Component {
           backgroundColor: "transparent",
           pointBackgroundColor: "#3693FF",
           pointRadius: 0,
-		  tension : 0.4
+          tension: 0.4,
         },
       ],
     };
 
     const options = {
-      plugins:{
-			legend: false,
-			responsive: true
-	  },
+      plugins: {
+        legend: false,
+        responsive: true,
+      },
       maintainAspectRatio: false,
       scales: {
-        y:
-          {
-			display: false,
-             min: 0,
-			max: 100,
-            ticks: {
-              beginAtZero: true,
-              
-              stepSize: 20,
-              padding: 0,
-              display: false,
-            },
-            grid: {
-              drawBorder: false,
-              display: false,
-            },
-          },
-        
-        x: 
-          {
+        y: {
+          display: false,
+          min: 0,
+          max: 100,
+          ticks: {
+            beginAtZero: true,
+
+            stepSize: 20,
+            padding: 0,
             display: false,
-            ticks: {
-              padding: 0,
-              display: false,
-            },
-            grid: {
-              display: false,
-              drawBorder: false,
-            },
           },
-        
+          grid: {
+            drawBorder: false,
+            display: false,
+          },
+        },
+
+        x: {
+          display: false,
+          ticks: {
+            padding: 0,
+            display: false,
+          },
+          grid: {
+            display: false,
+            drawBorder: false,
+          },
+        },
       },
     };
     return (

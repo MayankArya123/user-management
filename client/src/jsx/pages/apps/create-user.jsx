@@ -43,7 +43,7 @@ function CreateUser() {
   const [image, setImage] = useState(null);
 
   useEffect(() => {
-    console.log("check auth state", authState);
+    // console.log("check auth state", authState);
 
     setProfileImage(authState?.profilePicture);
   }, [authState]);
@@ -56,11 +56,7 @@ function CreateUser() {
   };
 
   const registerUser = async () => {
-    console.log("create user hitting");
-
     const response = await createUser(formData);
-
-    console.log("response from create user", response);
 
     if (response?.status === 201) {
       alert("user created");

@@ -96,7 +96,7 @@ function UiListGroup() {
                         </ListGroup.Item>
                       ) : i === listItem.length - 1 ? (
                         <ListGroup.Item
-						action
+                          action
                           className="list-group-item-action disabled"
                         >
                           {list}
@@ -176,7 +176,7 @@ function UiListGroup() {
                     </p>
                     <small>Donec id elit non mi porta.</small>
                   </ListGroup.Item>
-                  <ListGroup.Item  action className="flex-column">
+                  <ListGroup.Item action className="flex-column">
                     <div className="d-flex w-100 justify-content-between">
                       <h5 className="mb-3">List group item heading</h5>
                       <small className="text-muted">3 days ago</small>
@@ -349,6 +349,6 @@ function UiListGroup() {
       </Row>
     </Fragment>
   );
-};
+}
 
 export default UiListGroup;

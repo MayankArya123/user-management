@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Line } from 'react-chartjs-2';
+import { Line } from "react-chartjs-2";
 
-import 'chart.js/auto'
-
+import "chart.js/auto";
 
 class LineChart1 extends Component {
   render() {
@@ -17,39 +16,36 @@ class LineChart1 extends Component {
           borderWidth: this.props.borderWidth ? this.props.borderWidth : "2",
           //pointBackgroundColor: "rgba(64, 24, 157, 1)",
           backgroundColor: "rgba(0,115,255, 0)",
-		  tension:0.4
+          tension: 0.4,
         },
       ],
     };
 
     const options = {
-      plugins:{		  
-		  legend: {
-			  display:false
-		  }
-	  },
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
       scales: {
-        y: 
-          {
-             min: 0,	
-			max: 100,
-            ticks: {
-              beginAtZero: true,    
-              padding: 0,
-            },
+        y: {
+          min: 0,
+          max: 100,
+          ticks: {
+            beginAtZero: true,
+            padding: 0,
           },
-        
-        x: 
-          {
-            ticks: {
-              padding: 0,
-            },
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
+        },
+
+        x: {
+          ticks: {
+            padding: 0,
           },
-        
+          gridLines: {
+            display: false,
+            drawBorder: false,
+          },
+        },
       },
     };
     return (
@@ -62,7 +58,6 @@ class LineChart1 extends Component {
       </>
     );
   }
-
 }
 
 export default LineChart1;

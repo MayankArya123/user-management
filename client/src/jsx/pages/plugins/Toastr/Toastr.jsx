@@ -132,7 +132,7 @@ const Toastr = () => {
     });
   };
   return (
-   <>
+    <>
       <PageTitle activeMenu="Toastr" motherMenu="Plugins" />
       <ToastContainer />
       <div className="row">
@@ -156,7 +156,6 @@ const Toastr = () => {
                 className="btn btn-dark mb-2  me-2"
                 id="toastr-success-bottom-right"
               >
-
                 Bottom Right
               </button>
               <button
@@ -189,7 +188,6 @@ const Toastr = () => {
                 className="btn btn-dark mb-2  me-2"
                 id="toastr-success-bottom-full-width"
               >
-
                 Bottom Full Width
               </button>
               <button
@@ -236,7 +234,7 @@ const Toastr = () => {
           </div>
         </div>
       </div>
-      </>
+    </>
   );
 };
 

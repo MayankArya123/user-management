@@ -32,7 +32,7 @@ import { IMAGES } from "../../constant/theme";
 
 function Widget() {
   return (
-    <Fragment>      
+    <Fragment>
       <PageTitle activeMenu="Statistics" motherMenu="Widget" />
       <div className="row">
         <div className="col-xl-4 col-xxl-6 col-lg-6">
@@ -41,49 +41,95 @@ function Widget() {
               <h4 className="card-title">Timeline</h4>
             </div>
             <div className="card-body p-0">
-              <div style={{ height: "370px" }} id="DZ_W_TimeLine" className="widget-timeline ic-scroll p-4 height370">
+              <div
+                style={{ height: "370px" }}
+                id="DZ_W_TimeLine"
+                className="widget-timeline ic-scroll p-4 height370"
+              >
                 <ul className="timeline">
                   <li>
                     <div className="timeline-badge primary"></div>
-                    <Link className="timeline-panel text-muted" to="/widget-basic">
+                    <Link
+                      className="timeline-panel text-muted"
+                      to="/widget-basic"
+                    >
                       <span>10 minutes ago</span>
-                      <h6 className="mb-0"> Youtube, a video-sharing website, goes live{" "} <strong className="text-primary">$500</strong>. </h6>
+                      <h6 className="mb-0">
+                        {" "}
+                        Youtube, a video-sharing website, goes live{" "}
+                        <strong className="text-primary">$500</strong>.{" "}
+                      </h6>
                     </Link>
                   </li>
                   <li>
                     <div className="timeline-badge info"></div>
-                    <Link className="timeline-panel text-muted" to="/widget-basic">
+                    <Link
+                      className="timeline-panel text-muted"
+                      to="/widget-basic"
+                    >
                       <span>20 minutes ago</span>
-                      <h6 className="mb-0"> New order placed{" "} <strong className="text-info">#XF-2356.</strong> </h6>
-                      <p className="mb-0"> Quisque a consequat ante Sit amet magna at volutapt...</p>
+                      <h6 className="mb-0">
+                        {" "}
+                        New order placed{" "}
+                        <strong className="text-info">#XF-2356.</strong>{" "}
+                      </h6>
+                      <p className="mb-0">
+                        {" "}
+                        Quisque a consequat ante Sit amet magna at volutapt...
+                      </p>
                     </Link>
                   </li>
                   <li>
                     <div className="timeline-badge danger"></div>
-                    <Link className="timeline-panel text-muted" to="/widget-basic">
+                    <Link
+                      className="timeline-panel text-muted"
+                      to="/widget-basic"
+                    >
                       <span>30 minutes ago</span>
-                      <h6 className="mb-0"> john just buy your product{" "} <strong className="text-warning">Sell $250</strong> </h6>
+                      <h6 className="mb-0">
+                        {" "}
+                        john just buy your product{" "}
+                        <strong className="text-warning">Sell $250</strong>{" "}
+                      </h6>
                     </Link>
                   </li>
                   <li>
                     <div className="timeline-badge success"></div>
-                    <Link className="timeline-panel text-muted" to="/widget-basic">
+                    <Link
+                      className="timeline-panel text-muted"
+                      to="/widget-basic"
+                    >
                       <span>15 minutes ago</span>
-                      <h6 className="mb-0"> StumbleUpon is acquired by eBay.{" "} </h6>
+                      <h6 className="mb-0">
+                        {" "}
+                        StumbleUpon is acquired by eBay.{" "}
+                      </h6>
                     </Link>
                   </li>
                   <li>
                     <div className="timeline-badge warning"></div>
-                    <Link className="timeline-panel text-muted" to="/widget-basic">
+                    <Link
+                      className="timeline-panel text-muted"
+                      to="/widget-basic"
+                    >
                       <span>20 minutes ago</span>
-                      <h6 className="mb-0"> Mashable, a news website and blog, goes live. </h6>
+                      <h6 className="mb-0">
+                        {" "}
+                        Mashable, a news website and blog, goes live.{" "}
+                      </h6>
                     </Link>
                   </li>
                   <li>
                     <div className="timeline-badge dark"></div>
-                    <Link className="timeline-panel text-muted" to="/widget-basic">
+                    <Link
+                      className="timeline-panel text-muted"
+                      to="/widget-basic"
+                    >
                       <span>20 minutes ago</span>
-                      <h6 className="mb-0"> Mashable, a news website and blog, goes live. </h6>
+                      <h6 className="mb-0">
+                        {" "}
+                        Mashable, a news website and blog, goes live.{" "}
+                      </h6>
                     </Link>
                   </li>
                 </ul>
@@ -97,49 +143,95 @@ function Widget() {
               <h4 className="card-title">Timeline 2</h4>
             </div>
             <div className="card-body p-0">
-              <div style={{ height: "370px" }} id="DZ_W_TimeLine1" className="widget-timeline ic-scroll p-4 style-1 height370">
+              <div
+                style={{ height: "370px" }}
+                id="DZ_W_TimeLine1"
+                className="widget-timeline ic-scroll p-4 style-1 height370"
+              >
                 <ul className="timeline">
                   <li>
                     <div className="timeline-badge primary"></div>
-                    <Link className="timeline-panel text-muted" to="/widget-basic">
+                    <Link
+                      className="timeline-panel text-muted"
+                      to="/widget-basic"
+                    >
                       <span>10 minutes ago</span>
-                      <h6 className="mb-0"> Youtube, a video-sharing website, goes live{" "} <strong className="text-primary">$500</strong>. </h6>
+                      <h6 className="mb-0">
+                        {" "}
+                        Youtube, a video-sharing website, goes live{" "}
+                        <strong className="text-primary">$500</strong>.{" "}
+                      </h6>
                     </Link>
                   </li>
                   <li>
                     <div className="timeline-badge info"></div>
-                    <Link className="timeline-panel text-muted" to="/widget-basic">
+                    <Link
+                      className="timeline-panel text-muted"
+                      to="/widget-basic"
+                    >
                       <span>20 minutes ago</span>
-                      <h6 className="mb-0"> New order placed{" "} <strong className="text-info">#XF-2356.</strong> </h6>
-                      <p className="mb-0"> Quisque a consequat ante Sit amet magna at volutapt...</p>
+                      <h6 className="mb-0">
+                        {" "}
+                        New order placed{" "}
+                        <strong className="text-info">#XF-2356.</strong>{" "}
+                      </h6>
+                      <p className="mb-0">
+                        {" "}
+                        Quisque a consequat ante Sit amet magna at volutapt...
+                      </p>
                     </Link>
                   </li>
                   <li>
                     <div className="timeline-badge danger"></div>
-                    <Link className="timeline-panel text-muted" to="/widget-basic">
+                    <Link
+                      className="timeline-panel text-muted"
+                      to="/widget-basic"
+                    >
                       <span>30 minutes ago</span>
-                      <h6 className="mb-0"> john just buy your product{" "} <strong className="text-warning">Sell $250</strong> </h6>
+                      <h6 className="mb-0">
+                        {" "}
+                        john just buy your product{" "}
+                        <strong className="text-warning">Sell $250</strong>{" "}
+                      </h6>
                     </Link>
                   </li>
                   <li>
                     <div className="timeline-badge success"></div>
-                    <Link className="timeline-panel text-muted" to="/widget-basic">
+                    <Link
+                      className="timeline-panel text-muted"
+                      to="/widget-basic"
+                    >
                       <span>15 minutes ago</span>
-                      <h6 className="mb-0"> StumbleUpon is acquired by eBay.{" "}</h6>
+                      <h6 className="mb-0">
+                        {" "}
+                        StumbleUpon is acquired by eBay.{" "}
+                      </h6>
                     </Link>
                   </li>
                   <li>
                     <div className="timeline-badge warning"></div>
-                    <Link className="timeline-panel text-muted" to="/widget-basic">
+                    <Link
+                      className="timeline-panel text-muted"
+                      to="/widget-basic"
+                    >
                       <span>20 minutes ago</span>
-                      <h6 className="mb-0"> Mashable, a news website and blog, goes live. </h6>
+                      <h6 className="mb-0">
+                        {" "}
+                        Mashable, a news website and blog, goes live.{" "}
+                      </h6>
                     </Link>
                   </li>
                   <li>
                     <div className="timeline-badge dark"></div>
-                    <Link className="timeline-panel text-muted" to="/widget-basic">
+                    <Link
+                      className="timeline-panel text-muted"
+                      to="/widget-basic"
+                    >
                       <span>20 minutes ago</span>
-                      <h6 className="mb-0"> Mashable, a news website and blog, goes live. </h6>
+                      <h6 className="mb-0">
+                        {" "}
+                        Mashable, a news website and blog, goes live.{" "}
+                      </h6>
                     </Link>
                   </li>
                 </ul>
@@ -153,7 +245,11 @@ function Widget() {
               <h4 className="card-title">Notifications</h4>
             </div>
             <div className="card-body p-0">
-              <div style={{ height: "370px" }} id="DZ_W_Todo1" className="widget-media ic-scroll p-4 height370">
+              <div
+                style={{ height: "370px" }}
+                id="DZ_W_Todo1"
+                className="widget-media ic-scroll p-4 height370"
+              >
                 <ul className="timeline">
                   <li>
                     <div className="timeline-panel">
@@ -162,12 +258,28 @@ function Widget() {
                       </div>
                       <div className="media-body">
                         <h5 className="mb-1">Dr sultads Send you Photo</h5>
-                        <small className="d-block"> 29 July 2020 - 02:26 PM </small>
+                        <small className="d-block">
+                          {" "}
+                          29 July 2020 - 02:26 PM{" "}
+                        </small>
                       </div>
                       <Dropdown className="dropdown">
-                        <Dropdown.Toggle variant="primary light" className=" i-false p-0 sharp">
-                          <svg width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
-                            <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                        <Dropdown.Toggle
+                          variant="primary light"
+                          className=" i-false p-0 sharp"
+                        >
+                          <svg
+                            width="18px"
+                            height="18px"
+                            viewBox="0 0 24 24"
+                            version="1.1"
+                          >
+                            <g
+                              stroke="none"
+                              strokeWidth="1"
+                              fill="none"
+                              fillRule="evenodd"
+                            >
                               <rect x="0" y="0" width="24" height="24" />
                               <circle fill="#000000" cx="5" cy="12" r="2" />
                               <circle fill="#000000" cx="12" cy="12" r="2" />
@@ -176,8 +288,18 @@ function Widget() {
                           </svg>
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="dropdown-menu">
-                          <Dropdown.Item className="dropdown-item" to="/widget-basic">Edit</Dropdown.Item>
-                          <Dropdown.Item className="dropdown-item" to="/widget-basic">Delete</Dropdown.Item>
+                          <Dropdown.Item
+                            className="dropdown-item"
+                            to="/widget-basic"
+                          >
+                            Edit
+                          </Dropdown.Item>
+                          <Dropdown.Item
+                            className="dropdown-item"
+                            to="/widget-basic"
+                          >
+                            Delete
+                          </Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
                     </div>
@@ -187,12 +309,28 @@ function Widget() {
                       <div className="media me-2 media-info">KG</div>
                       <div className="media-body">
                         <h5 className="mb-1">Report created successfully</h5>
-                        <small className="d-block"> 29 July 2020 - 02:26 PM </small>
+                        <small className="d-block">
+                          {" "}
+                          29 July 2020 - 02:26 PM{" "}
+                        </small>
                       </div>
                       <Dropdown className="dropdown">
-                        <Dropdown.Toggle variant=" light" className="i-false p-0 btn-info sharp">
-                          <svg width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
-                            <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                        <Dropdown.Toggle
+                          variant=" light"
+                          className="i-false p-0 btn-info sharp"
+                        >
+                          <svg
+                            width="18px"
+                            height="18px"
+                            viewBox="0 0 24 24"
+                            version="1.1"
+                          >
+                            <g
+                              stroke="none"
+                              strokeWidth="1"
+                              fill="none"
+                              fillRule="evenodd"
+                            >
                               <rect x="0" y="0" width="24" height="24" />
                               <circle fill="#000000" cx="5" cy="12" r="2" />
                               <circle fill="#000000" cx="12" cy="12" r="2" />
@@ -201,8 +339,18 @@ function Widget() {
                           </svg>
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="dropdown-menu">
-                          <Dropdown.Item className="dropdown-item" to="/widget-basic">Edit</Dropdown.Item>
-                          <Dropdown.Item className="dropdown-item" to="/widget-basic">Delete</Dropdown.Item>
+                          <Dropdown.Item
+                            className="dropdown-item"
+                            to="/widget-basic"
+                          >
+                            Edit
+                          </Dropdown.Item>
+                          <Dropdown.Item
+                            className="dropdown-item"
+                            to="/widget-basic"
+                          >
+                            Delete
+                          </Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
                     </div>
@@ -214,12 +362,28 @@ function Widget() {
                       </div>
                       <div className="media-body">
                         <h5 className="mb-1">Reminder : Treatment Time!</h5>
-                        <small className="d-block"> 29 July 2020 - 02:26 PM </small>
+                        <small className="d-block">
+                          {" "}
+                          29 July 2020 - 02:26 PM{" "}
+                        </small>
                       </div>
                       <Dropdown className="dropdown">
-                        <Dropdown.Toggle variant=" light" className=" i-false p-0 btn-success sharp">
-                          <svg width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
-                            <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                        <Dropdown.Toggle
+                          variant=" light"
+                          className=" i-false p-0 btn-success sharp"
+                        >
+                          <svg
+                            width="18px"
+                            height="18px"
+                            viewBox="0 0 24 24"
+                            version="1.1"
+                          >
+                            <g
+                              stroke="none"
+                              strokeWidth="1"
+                              fill="none"
+                              fillRule="evenodd"
+                            >
                               <rect x="0" y="0" width="24" height="24" />
                               <circle fill="#000000" cx="5" cy="12" r="2" />
                               <circle fill="#000000" cx="12" cy="12" r="2" />
@@ -228,8 +392,18 @@ function Widget() {
                           </svg>
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="dropdown-menu">
-                          <Dropdown.Item className="dropdown-item" to="/widget-basic">Edit</Dropdown.Item>
-                          <Dropdown.Item className="dropdown-item" to="/widget-basic">Delete</Dropdown.Item>
+                          <Dropdown.Item
+                            className="dropdown-item"
+                            to="/widget-basic"
+                          >
+                            Edit
+                          </Dropdown.Item>
+                          <Dropdown.Item
+                            className="dropdown-item"
+                            to="/widget-basic"
+                          >
+                            Delete
+                          </Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
                     </div>
@@ -241,12 +415,28 @@ function Widget() {
                       </div>
                       <div className="media-body">
                         <h5 className="mb-1">Dr sultads Send you Photo</h5>
-                        <small className="d-block"> 29 July 2020 - 02:26 PM </small>
+                        <small className="d-block">
+                          {" "}
+                          29 July 2020 - 02:26 PM{" "}
+                        </small>
                       </div>
                       <Dropdown className="dropdown">
-                        <Dropdown.Toggle variant="primary light" className=" i-false p-0 sharp">
-                          <svg width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
-                            <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                        <Dropdown.Toggle
+                          variant="primary light"
+                          className=" i-false p-0 sharp"
+                        >
+                          <svg
+                            width="18px"
+                            height="18px"
+                            viewBox="0 0 24 24"
+                            version="1.1"
+                          >
+                            <g
+                              stroke="none"
+                              strokeWidth="1"
+                              fill="none"
+                              fillRule="evenodd"
+                            >
                               <rect x="0" y="0" width="24" height="24" />
                               <circle fill="#000000" cx="5" cy="12" r="2" />
                               <circle fill="#000000" cx="12" cy="12" r="2" />
@@ -255,8 +445,18 @@ function Widget() {
                           </svg>
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="dropdown-menu">
-                          <Dropdown.Item className="dropdown-item" to="/widget-basic">Edit</Dropdown.Item>
-                          <Dropdown.Item className="dropdown-item" to="/widget-basic">Delete</Dropdown.Item>
+                          <Dropdown.Item
+                            className="dropdown-item"
+                            to="/widget-basic"
+                          >
+                            Edit
+                          </Dropdown.Item>
+                          <Dropdown.Item
+                            className="dropdown-item"
+                            to="/widget-basic"
+                          >
+                            Delete
+                          </Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
                     </div>
@@ -266,12 +466,29 @@ function Widget() {
                       <div className="media me-2 media-danger">KG</div>
                       <div className="media-body">
                         <h5 className="mb-1">Resport created successfully</h5>
-                        <small className="d-block"> 29 July 2020 - 02:26 PM </small>
+                        <small className="d-block">
+                          {" "}
+                          29 July 2020 - 02:26 PM{" "}
+                        </small>
                       </div>
                       <Dropdown className="dropdown">
-                        <Dropdown.Toggle type="button" className="btn btn-danger light sharp   i-false p-0 sharp " data-toggle="dropdown">
-                          <svg width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
-                            <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                        <Dropdown.Toggle
+                          type="button"
+                          className="btn btn-danger light sharp   i-false p-0 sharp "
+                          data-toggle="dropdown"
+                        >
+                          <svg
+                            width="18px"
+                            height="18px"
+                            viewBox="0 0 24 24"
+                            version="1.1"
+                          >
+                            <g
+                              stroke="none"
+                              strokeWidth="1"
+                              fill="none"
+                              fillRule="evenodd"
+                            >
                               <rect x="0" y="0" width="24" height="24" />
                               <circle fill="#000000" cx="5" cy="12" r="2" />
                               <circle fill="#000000" cx="12" cy="12" r="2" />
@@ -280,8 +497,18 @@ function Widget() {
                           </svg>
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="dropdown-menu">
-                          <Dropdown.Item className="dropdown-item" to="/widget-basic">Edit</Dropdown.Item>
-                          <Dropdown.Item className="dropdown-item" to="/widget-basic">Delete</Dropdown.Item>
+                          <Dropdown.Item
+                            className="dropdown-item"
+                            to="/widget-basic"
+                          >
+                            Edit
+                          </Dropdown.Item>
+                          <Dropdown.Item
+                            className="dropdown-item"
+                            to="/widget-basic"
+                          >
+                            Delete
+                          </Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
                     </div>
@@ -293,12 +520,28 @@ function Widget() {
                       </div>
                       <div className="media-body">
                         <h5 className="mb-1">Reminder : Treatment Time!</h5>
-                        <small className="d-block"> 29 July 2020 - 02:26 PM </small>
+                        <small className="d-block">
+                          {" "}
+                          29 July 2020 - 02:26 PM{" "}
+                        </small>
                       </div>
                       <Dropdown className="dropdown">
-                        <Dropdown.Toggle variant="primary light" className=" i-false p-0 sharp">
-                          <svg width="18px" height="18px" viewBox="0 0 24 24" version="1.1" >
-                            <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd" >
+                        <Dropdown.Toggle
+                          variant="primary light"
+                          className=" i-false p-0 sharp"
+                        >
+                          <svg
+                            width="18px"
+                            height="18px"
+                            viewBox="0 0 24 24"
+                            version="1.1"
+                          >
+                            <g
+                              stroke="none"
+                              strokeWidth="1"
+                              fill="none"
+                              fillRule="evenodd"
+                            >
                               <rect x="0" y="0" width="24" height="24" />
                               <circle fill="#000000" cx="5" cy="12" r="2" />
                               <circle fill="#000000" cx="12" cy="12" r="2" />
@@ -307,8 +550,18 @@ function Widget() {
                           </svg>
                         </Dropdown.Toggle>
                         <Dropdown.Menu className="dropdown-menu">
-                          <Dropdown.Item className="dropdown-item" to="/widget-basic">Edit</Dropdown.Item>
-                          <Dropdown.Item className="dropdown-item" to="/widget-basic">Delete</Dropdown.Item>
+                          <Dropdown.Item
+                            className="dropdown-item"
+                            to="/widget-basic"
+                          >
+                            Edit
+                          </Dropdown.Item>
+                          <Dropdown.Item
+                            className="dropdown-item"
+                            to="/widget-basic"
+                          >
+                            Delete
+                          </Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
                     </div>
@@ -324,7 +577,11 @@ function Widget() {
               <h4 className="card-title">Notifications 2</h4>
             </div>
             <div className="card-body p-0">
-              <div style={{ height: "370px" }} id="DZ_W_Todo2" className="widget-media ic-scroll p-4 height370">
+              <div
+                style={{ height: "370px" }}
+                id="DZ_W_Todo2"
+                className="widget-media ic-scroll p-4 height370"
+              >
                 <ul className="timeline">
                   <li>
                     <div className="timeline-panel">
@@ -663,7 +920,11 @@ function Widget() {
               <h4 className="card-title">Message</h4>
             </div>
             <div className="card-body p-0">
-              <div style={{ height: "370px" }} id="DZ_W_Todo3" className="widget-media p-4 ic-scroll height370">
+              <div
+                style={{ height: "370px" }}
+                id="DZ_W_Todo3"
+                className="widget-media p-4 ic-scroll height370"
+              >
                 <ul className="timeline">
                   <li>
                     <div className="timeline-panel">
@@ -1074,7 +1335,11 @@ function Widget() {
               <h4 className="card-title">To Do List</h4>
             </div>
             <div className="card-body p-0">
-              <div style={{ height: "370px" }} id="DZ_W_Todo4" className="widget-media ic-scroll p-4 height370">
+              <div
+                style={{ height: "370px" }}
+                id="DZ_W_Todo4"
+                className="widget-media ic-scroll p-4 height370"
+              >
                 <ul className="timeline">
                   <li>
                     <div className="timeline-panel">
@@ -1453,10 +1718,22 @@ function Widget() {
             <div className="card-body p-4">
               <div className="media ai-icon">
                 <span className="me-3 bgl-primary text-primary">
-                <svg id="icon-customers" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-user">
-											<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-											<circle cx="12" cy="7" r="4"></circle>
-										</svg>
+                  <svg
+                    id="icon-customers"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    className="feather feather-user"
+                  >
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
                 </span>
                 <div className="media-body">
                   <p className="mb-1">Patient</p>
@@ -1895,13 +2172,40 @@ function Widget() {
                 <div className="card-action mb-sm-0 my-2">
                   <Nav className="nav nav-tabs" role="tablist">
                     <Nav.Item className="nav-item">
-                      <Nav.Link className="nav-link " data-toggle="tab" to={"#"} role="tab" eventKey="day"> Day </Nav.Link>
+                      <Nav.Link
+                        className="nav-link "
+                        data-toggle="tab"
+                        to={"#"}
+                        role="tab"
+                        eventKey="day"
+                      >
+                        {" "}
+                        Day{" "}
+                      </Nav.Link>
                     </Nav.Item>
                     <Nav.Item className="nav-item">
-                      <Nav.Link className="nav-link" data-toggle="tab" to={"#"} role="tab" eventKey="month"> Month </Nav.Link>
+                      <Nav.Link
+                        className="nav-link"
+                        data-toggle="tab"
+                        to={"#"}
+                        role="tab"
+                        eventKey="month"
+                      >
+                        {" "}
+                        Month{" "}
+                      </Nav.Link>
                     </Nav.Item>
                     <Nav.Item className="nav-item">
-                      <Nav.Link className="nav-link" data-toggle="tab" to={"#"} role="tab" eventKey="year"> Year </Nav.Link>
+                      <Nav.Link
+                        className="nav-link"
+                        data-toggle="tab"
+                        to={"#"}
+                        role="tab"
+                        eventKey="year"
+                      >
+                        {" "}
+                        Year{" "}
+                      </Nav.Link>
                     </Nav.Item>
                   </Nav>
                 </div>
@@ -1927,13 +2231,24 @@ function Widget() {
             <div className="card-body">
               <div className="text-center">
                 <div className="profile-photo">
-                  <img src={IMAGES.profile} width="100" className="img-fluid rounded-circle" alt="" />
+                  <img
+                    src={IMAGES.profile}
+                    width="100"
+                    className="img-fluid rounded-circle"
+                    alt=""
+                  />
                 </div>
                 <h3 className="mt-4 mb-1">Deangelo Sena</h3>
                 <p className="text-muted">Senior Manager</p>
-                <Link className="btn btn-outline-primary btn-rounded mt-3 px-5" to="/widget-basic" > Folllow </Link>
+                <Link
+                  className="btn btn-outline-primary btn-rounded mt-3 px-5"
+                  to="/widget-basic"
+                >
+                  {" "}
+                  Folllow{" "}
+                </Link>
               </div>
-            </div> 
+            </div>
             <div className="card-footer pt-0 pb-0 text-center">
               <div className="row">
                 <div className="col-4 pt-3 pb-3 border-end">
@@ -1959,41 +2274,49 @@ function Widget() {
               <ActiveUser />
             </div>
             <div className="card-body pt-0">
-								<div className="list-group-flush mt-4">
-									<div className="list-group-item bg-transparent d-flex justify-content-between px-0 py-1 fw-semi-bold border-top-0 border-0 border-bottom">
-										<p className="mb-0">Top Active Pages</p>
-										<p className="mb-0">Active Users</p>
-									</div>
-									<div className="list-group-item bg-transparent d-flex justify-content-between px-0 py-1 border-0 border-bottom">
-										<p className="mb-0">/bootstrap-themes/</p>
-										<p className="mb-0">3</p>
-									</div>
-									<div className="list-group-item bg-transparent d-flex justify-content-between px-0 py-1 border-0 border-bottom">
-										<p className="mb-0">/tags/html5/</p>
-										<p className="mb-0">3</p>
-									</div>
-									<div className="list-group-item bg-transparent d-xxl-flex justify-content-between px-0 py-1 d-none">
-										<p className="mb-0">/</p>
-										<p className="mb-0">2</p>
-									</div>
-									<div className="list-group-item bg-transparent d-xxl-flex justify-content-between px-0 py-1 d-none">
-										<p className="mb-0">/preview/falcon/dashboard/</p>
-										<p className="mb-0">2</p>
-									</div>
-									<div className="list-group-item bg-transparent d-flex justify-content-between px-0 py-1 border-0 border-bottom">
-										<p className="mb-0">/100-best-themes...all-time/</p>
-										<p className="mb-0">1</p>
-									</div>
-								</div>
-							</div>
+              <div className="list-group-flush mt-4">
+                <div className="list-group-item bg-transparent d-flex justify-content-between px-0 py-1 fw-semi-bold border-top-0 border-0 border-bottom">
+                  <p className="mb-0">Top Active Pages</p>
+                  <p className="mb-0">Active Users</p>
+                </div>
+                <div className="list-group-item bg-transparent d-flex justify-content-between px-0 py-1 border-0 border-bottom">
+                  <p className="mb-0">/bootstrap-themes/</p>
+                  <p className="mb-0">3</p>
+                </div>
+                <div className="list-group-item bg-transparent d-flex justify-content-between px-0 py-1 border-0 border-bottom">
+                  <p className="mb-0">/tags/html5/</p>
+                  <p className="mb-0">3</p>
+                </div>
+                <div className="list-group-item bg-transparent d-xxl-flex justify-content-between px-0 py-1 d-none">
+                  <p className="mb-0">/</p>
+                  <p className="mb-0">2</p>
+                </div>
+                <div className="list-group-item bg-transparent d-xxl-flex justify-content-between px-0 py-1 d-none">
+                  <p className="mb-0">/preview/falcon/dashboard/</p>
+                  <p className="mb-0">2</p>
+                </div>
+                <div className="list-group-item bg-transparent d-flex justify-content-between px-0 py-1 border-0 border-bottom">
+                  <p className="mb-0">/100-best-themes...all-time/</p>
+                  <p className="mb-0">1</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="col-xl-4 col-lg-12 col-sm-12">
           <div className="card overflow-hidden">
-            <div className="text-center p-3 overlay-box " style={{ backgroundImage: `url(${IMAGES.big1})` }} >
+            <div
+              className="text-center p-3 overlay-box "
+              style={{ backgroundImage: `url(${IMAGES.big1})` }}
+            >
               <div className="profile-photo">
-                <img src={IMAGES.profile} width="100" className="m-auto img-fluid rounded-circle d-block" alt="" />
+                <img
+                  src={IMAGES.profile}
+                  width="100"
+                  className="m-auto img-fluid rounded-circle d-block"
+                  alt=""
+                />
               </div>
               <h3 className="mt-3 mb-1 text-white">Deangelo Sena</h3>
               <p className="text-white mb-0">Senior Manager</p>
@@ -2347,7 +2670,18 @@ function Widget() {
         <div className="col-xl-4 col-lg-12 col-xxl-4 col-sm-12">
           <div className="card">
             <div className="card-body text-center ai-icon  text-primary">
-              <svg id="rocket-icon" className="my-2" viewBox="0 0 24 24" width="80" height="80" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                id="rocket-icon"
+                className="my-2"
+                viewBox="0 0 24 24"
+                width="80"
+                height="80"
+                stroke="currentColor"
+                strokeWidth="1"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <path d="M16 10a4 4 0 0 1-8 0"></path>
@@ -2721,8 +3055,15 @@ function Widget() {
                       </div>
                       <Dropdown className="dropdown" align="end">
                         <Dropdown.Toggle
-                          variant="primary light" className=" i-false p-0 sharp">
-                          <svg width="18px" height="18px" viewBox="0 0 24 24" version="1.1">
+                          variant="primary light"
+                          className=" i-false p-0 sharp"
+                        >
+                          <svg
+                            width="18px"
+                            height="18px"
+                            viewBox="0 0 24 24"
+                            version="1.1"
+                          >
                             <g
                               stroke="none"
                               strokeWidth="1"
@@ -2858,7 +3199,7 @@ function Widget() {
                 </ul>
               </div>
             </div>
-            <div className="chart-wrapper">              
+            <div className="chart-wrapper">
               <TopProducts1 />
             </div>
           </div>
@@ -3261,6 +3602,6 @@ function Widget() {
       </div>
     </Fragment>
   );
-};
+}
 
 export default Widget;

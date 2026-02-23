@@ -32,29 +32,22 @@ const CommanSection = () => {
 
     const decoded = JSON.parse(atob(token.split(".")[1]));
 
-    console.log("decoded check", decoded);
-
     return Boolean(decoded.impersonatedBy);
   };
 
   const BlockUnBlockUser = async (id) => {
-    console.log("check id", id);
     const response = await toggleBlockUser(id);
-    console.log("response check", response);
+
     getUserData();
   };
 
   const PersonateImpersonateUser = async (id) => {
-    console.log("id check", id);
-
     const res = await impersonateUser(id);
     localStorage.setItem("impersonateToken", res.data.token);
     localStorage.setItem("originalAdmin", authState._id);
   };
 
   const switchBackToAdmin = async () => {
-    console.log("check");
-
     const impersonateToken = localStorage.getItem("impersonateToken");
     if (!impersonateToken) return;
 
@@ -82,14 +75,11 @@ const CommanSection = () => {
       blocked: blockedFilter,
     });
 
-    console.log("response", response);
-
     setUsers(response.users);
     setTotalPages(response.pages);
   };
 
   const deleteUserData = async (id) => {
-    console.log("check id", id);
     const deleteResponse = await deleteUser(id);
 
     if (deleteResponse?.status === 200) {
@@ -101,31 +91,6 @@ const CommanSection = () => {
     getUserData();
   }, [currentPage, search, roleFilter, blockedFilter]);
 
-  console.log("users", users);
-
-  const chackboxFun = (type) => {
-    setTimeout(() => {
-      const motherChackBox = document.querySelector(".home-check");
-      const chackbox = document.querySelectorAll(".home-check1");
-      for (let i = 0; i < chackbox.length; i++) {
-        const element = chackbox[i];
-        if (type === "all") {
-          if (motherChackBox.checked) {
-            element.checked = true;
-          } else {
-            element.checked = false;
-          }
-        } else {
-          if (!element.checked) {
-            motherChackBox.checked = false;
-            break;
-          } else {
-            motherChackBox.checked = true;
-          }
-        }
-      }
-    }, 100);
-  };
   const [data, setData] = useState([...hometabledata]);
   const [sortConfig, setSortConfig] = useState({
     key: "workstation",

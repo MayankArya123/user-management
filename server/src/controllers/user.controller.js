@@ -3,11 +3,7 @@ const bcrypt = require("bcryptjs");
 
 exports.updateUser = async (req, res) => {
   try {
-    console.log("update user route hitting", req.body);
-
     const user = await User.findById(req.params.id);
-
-    console.log("user check", user);
 
     const body = { ...req.body }; // now it's a plain JS object
 
@@ -18,11 +14,8 @@ exports.updateUser = async (req, res) => {
     if ("bio" in body) user.bio = body.bio;
 
     if (req.file) {
-      console.log("new file check...");
       user.profilePicture = `/uploads/${req.file.filename}`;
     }
-
-    console.log("user check", user);
 
     const updatedUser = await user.save();
 
@@ -48,8 +41,6 @@ exports.getUserById = async (req, res) => {
 };
 
 exports.changePassword = async (req, res) => {
-  console.log("check", req.body);
-
   try {
     const { currentPassword, newPassword, confirmPassword } = req.body;
 

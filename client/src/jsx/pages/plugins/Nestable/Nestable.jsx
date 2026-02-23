@@ -1,6 +1,6 @@
 import NTable from "./NTable";
 import NTable2 from "./NTable2";
-import PageTitle from "../../../layouts/PageTitle";   
+import PageTitle from "../../../layouts/PageTitle";
 
 function Nestable() {
   return (
@@ -20,7 +20,7 @@ function Nestable() {
                       <div className="dd" id="nestable">
                         <ol className="dd-list">
                           <li className="dd-item" data-id="1">
-                            <NTable /> 
+                            <NTable />
                           </li>
                         </ol>
                       </div>

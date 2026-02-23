@@ -13,7 +13,20 @@ class VisitorActivity extends Component {
       [25, 88, 25, 50, 70, 70, 60, 70, 50, 60, 50, 70],
     ];
     const data = {
-      labels: [ "01", "02", "03", "04","05", "06","07", "08","09","10","11","12",],
+      labels: [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12",
+      ],
       datasets: [
         {
           label: "My First dataset",
@@ -29,36 +42,33 @@ class VisitorActivity extends Component {
       responsive: true,
       maintainAspectRatio: false,
 
-      plugins:{
-		  legend: {
-			display: false,
-		  }
-	  },
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
       scales: {
-        y:
-          {
-            gridLines: {
-              color: "rgba(89, 59, 219,0.1)",
-              drawBorder: true,
-            },
-            ticks: {
-              fontColor: "#999",
-            },
+        y: {
+          gridLines: {
+            color: "rgba(89, 59, 219,0.1)",
+            drawBorder: true,
           },
-        
-        x:
-          {
-            gridLines: {
-              display: false,
-              zeroLineColor: "transparent",
-            },
-            ticks: {
-              stepSize: 5,
-              fontColor: "#999",
-              fontFamily: "Nunito, sans-serif",
-            },
+          ticks: {
+            fontColor: "#999",
           },
-        
+        },
+
+        x: {
+          gridLines: {
+            display: false,
+            zeroLineColor: "transparent",
+          },
+          ticks: {
+            stepSize: 5,
+            fontColor: "#999",
+            fontFamily: "Nunito, sans-serif",
+          },
+        },
       },
       tooltips: {
         mode: "index",

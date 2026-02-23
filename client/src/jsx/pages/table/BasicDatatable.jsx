@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const BasicDatatable = () => {
   const [data, setData] = useState(
-    document.querySelectorAll("#job_data tbody tr")
+    document.querySelectorAll("#job_data tbody tr"),
   );
   const sort = 5;
   const activePag = useRef(0);
@@ -39,7 +39,6 @@ const BasicDatatable = () => {
     settest(i);
   };
 
-
   return (
     <div className="col-12">
       <div className="card">
@@ -49,15 +48,53 @@ const BasicDatatable = () => {
         <div className="card-body">
           <div className="table-responsive">
             <div id="job_data" className="dataTables_wrapper">
-              <table className="display w-100 dataTable text-nowrap" id="example5" role="grid" aria-describedby="example5_info" >
+              <table
+                className="display w-100 dataTable text-nowrap"
+                id="example5"
+                role="grid"
+                aria-describedby="example5_info"
+              >
                 <thead>
                   <tr role="row">
-                    <th className="sorting c-pointer" style={{ width: "177px" }}> Name </th>
-                    <th className="sorting c-pointer" style={{ width: "278px" }}> Position </th>
-                    <th className="sorting c-pointer" style={{ width: "128px" }}> Office </th>
-                    <th className="sorting c-pointer" style={{ width: "46px" }}> Age </th>
-                    <th className="sorting c-pointer" style={{ width: "114px" }}> Start date </th>
-                    <th className="sorting c-pointer" style={{ width: "110px" }}> Salary </th>
+                    <th
+                      className="sorting c-pointer"
+                      style={{ width: "177px" }}
+                    >
+                      {" "}
+                      Name{" "}
+                    </th>
+                    <th
+                      className="sorting c-pointer"
+                      style={{ width: "278px" }}
+                    >
+                      {" "}
+                      Position{" "}
+                    </th>
+                    <th
+                      className="sorting c-pointer"
+                      style={{ width: "128px" }}
+                    >
+                      {" "}
+                      Office{" "}
+                    </th>
+                    <th className="sorting c-pointer" style={{ width: "46px" }}>
+                      {" "}
+                      Age{" "}
+                    </th>
+                    <th
+                      className="sorting c-pointer"
+                      style={{ width: "114px" }}
+                    >
+                      {" "}
+                      Start date{" "}
+                    </th>
+                    <th
+                      className="sorting c-pointer"
+                      style={{ width: "110px" }}
+                    >
+                      {" "}
+                      Salary{" "}
+                    </th>
                   </tr>
                 </thead>
 
@@ -145,12 +182,30 @@ const BasicDatatable = () => {
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th rowSpan="1" colSpan="1"> Name </th>
-                    <th rowSpan="1" colSpan="1"> Position </th>
-                    <th rowSpan="1" colSpan="1"> Office </th>
-                    <th rowSpan="1" colSpan="1"> Age </th>
-                    <th rowSpan="1" colSpan="1"> Start date </th>
-                    <th rowSpan="1" colSpan="1"> Salary </th>
+                    <th rowSpan="1" colSpan="1">
+                      {" "}
+                      Name{" "}
+                    </th>
+                    <th rowSpan="1" colSpan="1">
+                      {" "}
+                      Position{" "}
+                    </th>
+                    <th rowSpan="1" colSpan="1">
+                      {" "}
+                      Office{" "}
+                    </th>
+                    <th rowSpan="1" colSpan="1">
+                      {" "}
+                      Age{" "}
+                    </th>
+                    <th rowSpan="1" colSpan="1">
+                      {" "}
+                      Start date{" "}
+                    </th>
+                    <th rowSpan="1" colSpan="1">
+                      {" "}
+                      Salary{" "}
+                    </th>
                   </tr>
                 </tfoot>
               </table>
@@ -162,19 +217,46 @@ const BasicDatatable = () => {
                     : data.length}{" "}
                   of {data.length} entries
                 </div>
-                <div className="dataTables_paginate paging_simple_numbers" id="example5_paginate" >
-                  <Link className="paginate_button previous disabled" to="#" onClick={() => activePag.current > 0 && onClick(activePag.current - 1)}>
-                    <i className="fa fa-angle-double-left" aria-hidden="true"></i>
+                <div
+                  className="dataTables_paginate paging_simple_numbers"
+                  id="example5_paginate"
+                >
+                  <Link
+                    className="paginate_button previous disabled"
+                    to="#"
+                    onClick={() =>
+                      activePag.current > 0 && onClick(activePag.current - 1)
+                    }
+                  >
+                    <i
+                      className="fa fa-angle-double-left"
+                      aria-hidden="true"
+                    ></i>
                   </Link>
                   <span>
                     {paggination.map((number, i) => (
-                      <Link key={i} to="#" className={`paginate_button next ${activePag.current === i ? "current" : ""}`} onClick={() => onClick(i)}>
+                      <Link
+                        key={i}
+                        to="#"
+                        className={`paginate_button next ${activePag.current === i ? "current" : ""}`}
+                        onClick={() => onClick(i)}
+                      >
                         {number}
                       </Link>
                     ))}
                   </span>
-                  <Link className="paginate_button next" to="#" onClick={() => activePag.current + 1 < paggination.length && onClick(activePag.current + 1)}>
-                    <i className="fa fa-angle-double-right" aria-hidden="true"></i>
+                  <Link
+                    className="paginate_button next"
+                    to="#"
+                    onClick={() =>
+                      activePag.current + 1 < paggination.length &&
+                      onClick(activePag.current + 1)
+                    }
+                  >
+                    <i
+                      className="fa fa-angle-double-right"
+                      aria-hidden="true"
+                    ></i>
                   </Link>
                 </div>
               </div>

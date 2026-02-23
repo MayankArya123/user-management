@@ -32,7 +32,7 @@ class MarketNow extends Component {
           label: "Expense",
           backgroundColor: "#430b58",
           hoverBackgroundColor: "#6c2586",
-		   barThickness: 6,
+          barThickness: 6,
           data: [
             "20",
             "14",
@@ -60,7 +60,7 @@ class MarketNow extends Component {
           label: "Earning",
           backgroundColor: "#F1F3F7",
           hoverBackgroundColor: "#F1F3F7",
-		   barThickness: 6,
+          barThickness: 6,
           data: [
             "32",
             "58",
@@ -88,51 +88,48 @@ class MarketNow extends Component {
     };
 
     const options = {
-      plugins:{
-		  legend: {
-			display: false,
-		  },
-		  title: {
-			display: false,
-		  },
-		  tooltips: {
-			mode: "index",
-			intersect: false,
-		  }
-	  },
+      plugins: {
+        legend: {
+          display: false,
+        },
+        title: {
+          display: false,
+        },
+        tooltips: {
+          mode: "index",
+          intersect: false,
+        },
+      },
       responsive: true,
       maintainAspectRatio: false,
       scales: {
-        x: 
-          {
+        x: {
+          display: false,
+          stacked: true,
+          barPercentage: 1,
+          barThickness: 5,
+          ticks: {
             display: false,
-            stacked: true,
-            barPercentage: 1,
-            barThickness: 5,
-            ticks: {
-              display: false,
-            },
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
           },
-        
-        y: 
-          {
+          gridLines: {
             display: false,
-            stacked: true,
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
-            ticks: {
-              display: false,
-              max: 100,
-              min: 0,
-            },
+            drawBorder: false,
           },
-        
+        },
+
+        y: {
+          display: false,
+          stacked: true,
+          gridLines: {
+            display: false,
+            drawBorder: false,
+          },
+          ticks: {
+            display: false,
+            max: 100,
+            min: 0,
+          },
+        },
       },
     };
 

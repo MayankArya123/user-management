@@ -3,20 +3,19 @@ import React, { Fragment } from "react";
 // import swal from "sweetalert";
 import Swal from "sweetalert2";
 import PageTitle from "../../../layouts/PageTitle";
-import hand from './../../../../assets/images/hand.png';
+import hand from "./../../../../assets/images/hand.png";
 
 const customImageAlert = () => {
   Swal.fire({
     title: "Sweet !!",
     text: "Hey, Here's a custom image !!",
-    imageUrl: hand
+    imageUrl: hand,
   });
-}
+};
 
 function MainSweetAlert() {
   return (
     <Fragment>
-
       <PageTitle activeMenu="Sweet Alert" motherMenu="Plugins" />
       <div className="row">
         <div className="col-xl-3 col-xxl-4 col-lg-4 col-md-6">
@@ -44,16 +43,12 @@ function MainSweetAlert() {
               <h4 className="card-title">Sweet Message</h4>
               <div className="card-content">
                 <div className="sweetalert">
-
                   <button
-                    onClick={() =>
-                      Swal.fire("Hey, Here's a message !!", "")
-                    }
+                    onClick={() => Swal.fire("Hey, Here's a message !!", "")}
                     className="btn btn-info btn sweet-message"
                   >
                     Sweet Message
                   </button>
-
                 </div>
               </div>
             </div>
@@ -67,7 +62,10 @@ function MainSweetAlert() {
                 <div className="sweetalert">
                   <button
                     onClick={() =>
-                      Swal.fire("Hey, Here's a message !!", "It's pretty, isn't it?")
+                      Swal.fire(
+                        "Hey, Here's a message !!",
+                        "It's pretty, isn't it?",
+                      )
                     }
                     className="btn btn-primary btn sweet-text"
                   >
@@ -86,7 +84,11 @@ function MainSweetAlert() {
                 <div className="sweetalert">
                   <button
                     onClick={() =>
-                      Swal.fire("Good job!", "You clicked the button!", "success")
+                      Swal.fire(
+                        "Good job!",
+                        "You clicked the button!",
+                        "success",
+                      )
                     }
                     className="btn btn-success btn sweet-success"
                   >
@@ -108,16 +110,18 @@ function MainSweetAlert() {
                     onClick={() =>
                       Swal.fire({
                         title: "Are you sure?",
-                        text:
-                          "Once deleted, you will not be able to recover this imaginary file!",
+                        text: "Once deleted, you will not be able to recover this imaginary file!",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
                       }).then((willDelete) => {
                         if (willDelete) {
-                          Swal.fire("Poof! Your imaginary file has been deleted!", {
-                            icon: "success",
-                          });
+                          Swal.fire(
+                            "Poof! Your imaginary file has been deleted!",
+                            {
+                              icon: "success",
+                            },
+                          );
                         } else {
                           Swal.fire("Your imaginary file is safe!");
                         }
@@ -142,16 +146,18 @@ function MainSweetAlert() {
                     onClick={() =>
                       Swal.fire({
                         title: "Are you sure?",
-                        text:
-                          "Once deleted, you will not be able to recover this imaginary file!",
+                        text: "Once deleted, you will not be able to recover this imaginary file!",
                         icon: "warning",
                         buttons: true,
                         dangerMode: true,
                       }).then((willDelete) => {
                         if (willDelete) {
-                          Swal.fire("Poof! Your imaginary file has been deleted!", {
-                            icon: "success",
-                          });
+                          Swal.fire(
+                            "Poof! Your imaginary file has been deleted!",
+                            {
+                              icon: "success",
+                            },
+                          );
                         } else {
                           Swal.fire("Your imaginary file is safe!");
                         }
@@ -178,7 +184,6 @@ function MainSweetAlert() {
                   >
                     Sweet Image Message
                   </button>
-
                 </div>
               </div>
             </div>
@@ -190,11 +195,8 @@ function MainSweetAlert() {
               <h4 className="card-title">Sweet HTML</h4>
               <div className="card-content">
                 <div className="sweetalert">
-
                   <button
-                    onClick={() =>
-                      Swal.fire("Sweet !!", "true")
-                    }
+                    onClick={() => Swal.fire("Sweet !!", "true")}
                     className="btn btn-primary btn sweet-html"
                   >
                     Sweet HTML
@@ -214,7 +216,7 @@ function MainSweetAlert() {
                   <button
                     onClick={() =>
                       Swal.fire(
-                        "Click on either the button or outside the modal."
+                        "Click on either the button or outside the modal.",
                       ).then((value) => {
                         Swal.fire(`The returned value is: ${value}`);
                       })
@@ -259,16 +261,18 @@ function MainSweetAlert() {
                   onClick={() =>
                     Swal.fire({
                       title: "Are you sure?",
-                      text:
-                        "Once deleted, you will not be able to recover this imaginary file!",
+                      text: "Once deleted, you will not be able to recover this imaginary file!",
                       icon: "warning",
                       buttons: true,
                       dangerMode: true,
                     }).then((willDelete) => {
                       if (willDelete) {
-                        Swal.fire("Poof! Your imaginary file has been deleted!", {
-                          icon: "success",
-                        });
+                        Swal.fire(
+                          "Poof! Your imaginary file has been deleted!",
+                          {
+                            icon: "success",
+                          },
+                        );
                       } else {
                         Swal.fire("Your imaginary file is safe!");
                       }
@@ -285,6 +289,6 @@ function MainSweetAlert() {
       </div>
     </Fragment>
   );
-};
+}
 
 export default MainSweetAlert;

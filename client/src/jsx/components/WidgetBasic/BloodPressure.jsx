@@ -12,47 +12,44 @@ class BloodPressur extends Component {
           borderColor: "#709fba",
           borderWidth: "0",
           backgroundColor: "#709fba",
-		  barThickness : 12
+          barThickness: 12,
         },
       ],
     };
 
     const options = {
-      plugins:{
-		legend: false,
-		responsive: true,  
-	  },
+      plugins: {
+        legend: false,
+        responsive: true,
+      },
       maintainAspectRatio: false,
       scales: {
-        y: 
-          {
+        y: {
+          display: false,
+          ticks: {
+            beginAtZero: true,
             display: false,
-            ticks: {
-              beginAtZero: true,
-              display: false,
-              max: 100,
-              min: 0,
-              stepSize: 7,
-            },
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
+            max: 100,
+            min: 0,
+            stepSize: 7,
           },
-        
-        x:
-          {
+          gridLines: {
             display: false,
-            barPercentage: 0.6,
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
-            ticks: {
-              display: false,
-            },
+            drawBorder: false,
           },
-        
+        },
+
+        x: {
+          display: false,
+          barPercentage: 0.6,
+          gridLines: {
+            display: false,
+            drawBorder: false,
+          },
+          ticks: {
+            display: false,
+          },
+        },
       },
     };
 

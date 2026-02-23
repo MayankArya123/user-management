@@ -22,53 +22,49 @@ class Widget1 extends Component {
           pointHoverBackgroundColor: "#b58ed3",
           pointHoverBorderColor: "#b58ed3",
           pointHoverRadius: 0,
-		  fill:true,
+          fill: true,
         },
       ],
     };
 
     const options = {
-     
       maintainAspectRatio: false,
-      plugins:{
-		  tooltips: {
-			enabled: false,
-		  },
-		  legend: {
-			display: false,
-			labels: {
-			  usePointStyle: false,
-			},
-		  },
-		   responsive: true,
-	  },
+      plugins: {
+        tooltips: {
+          enabled: false,
+        },
+        legend: {
+          display: false,
+          labels: {
+            usePointStyle: false,
+          },
+        },
+        responsive: true,
+      },
       scales: {
-        x: 
-          {
+        x: {
+          display: false,
+          gridLines: {
             display: false,
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
-            scaleLabel: {
-              display: false,
-              labelString: "Month",
-            },
+            drawBorder: false,
           },
-       
-        y: 
-          {
+          scaleLabel: {
             display: false,
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
-            scaleLabel: {
-              display: true,
-              labelString: "Value",
-            },
+            labelString: "Month",
           },
-        
+        },
+
+        y: {
+          display: false,
+          gridLines: {
+            display: false,
+            drawBorder: false,
+          },
+          scaleLabel: {
+            display: true,
+            labelString: "Value",
+          },
+        },
       },
       elements: {
         line: {

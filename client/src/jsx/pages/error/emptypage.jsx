@@ -1,8 +1,5 @@
 function EmptyPage() {
-    return (
-        <>
-        </>
-    );
+  return <></>;
 }
 
 export default EmptyPage;

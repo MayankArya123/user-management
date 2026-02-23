@@ -14,28 +14,25 @@ class BarChart5 extends Component {
           borderWidth: "0",
           backgroundColor: "rgba(0,115,255, 0.5)",
           hoverBackgroundColor: "rgba(0,115,255, 0.5)",
-		  barThickness: 40
+          barThickness: 40,
         },
       ],
     };
     const options = {
-		plugins:{
-		  legend: false,
-		},
+      plugins: {
+        legend: false,
+      },
       scales: {
-        y: 
-          {
-            ticks: {
-              beginAtZero: true,
-            },
+        y: {
+          ticks: {
+            beginAtZero: true,
           },
-        
-        x: 
-          {
-            // Change here
-            barPercentage: 0.5,
-          },
-        
+        },
+
+        x: {
+          // Change here
+          barPercentage: 0.5,
+        },
       },
     };
 

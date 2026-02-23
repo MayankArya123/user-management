@@ -13,14 +13,15 @@ function UiPagination() {
     items.push(
       <Pagination.Item key={number} active={number === active}>
         {number}
-      </Pagination.Item>
+      </Pagination.Item>,
     );
   }
   const pag = (size, gutter, variant, bg, circle) => (
     <Pagination
       size={size}
-      className={`mt-4  ${gutter ? "pagination-gutter" : ""} ${variant && `pagination-${variant}`
-        } ${!bg && "no-bg"} ${circle && "pagination-circle"}`}
+      className={`mt-4  ${gutter ? "pagination-gutter" : ""} ${
+        variant && `pagination-${variant}`
+      } ${!bg && "no-bg"} ${circle && "pagination-circle"}`}
     >
       <li className="page-item page-indicator">
         <Link className="page-link" to="#">
@@ -106,6 +107,6 @@ function UiPagination() {
       </Row>
     </Fragment>
   );
-};
+}
 
 export default UiPagination;

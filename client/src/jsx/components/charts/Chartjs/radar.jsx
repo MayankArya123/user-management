@@ -9,7 +9,7 @@ import {
   Filler,
   Tooltip,
   Legend,
-} from 'chart.js';
+} from "chart.js";
 //import { Radar } from 'react-chartjs-2';
 
 ChartJS.register(
@@ -18,7 +18,7 @@ ChartJS.register(
   LineElement,
   Filler,
   Tooltip,
-  Legend
+  Legend,
 );
 
 const data = {
@@ -51,9 +51,9 @@ const data = {
 };
 
 const options = {
-	plugins:{
-		legend: false,
-	},
+  plugins: {
+    legend: false,
+  },
   maintainAspectRatio: false,
   scale: {
     ticks: {

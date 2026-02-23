@@ -8,7 +8,7 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
+} from "chart.js";
 //import { Bar } from 'react-chartjs-2';
 //import faker from 'faker';
 
@@ -18,7 +18,7 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 );
 
 class BarChart1 extends Component {
@@ -33,8 +33,7 @@ class BarChart1 extends Component {
           borderColor: "#0074FF",
           borderWidth: "0",
           backgroundColor: "#0074FF",
-          barThickness: 40
-
+          barThickness: 40,
         },
       ],
     };
@@ -42,22 +41,18 @@ class BarChart1 extends Component {
     const options = {
       plugins: {
         legend: false,
-
       },
       scales: {
-        y:
-        {
+        y: {
           ticks: {
             beginAtZero: true,
           },
         },
 
-        x:
-        {
+        x: {
           // Change here
           barPercentage: 0.5,
         },
-
       },
     };
 

@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 /// Compoents
 import PageTitle from "../../layouts/PageTitle";
 
@@ -45,7 +45,8 @@ function UiCards() {
               <Card.Text>
                 This is a wider card with supporting text and below as a natural
                 lead-in to the additional content. This content is a little
-                <br /> bit longer. Some quick example text to build the bulk{" "}
+                <br /> bit longer. Some quick example text to build the
+                bulk{" "}
               </Card.Text>
             </Card.Body>
             <Card.Footer className=" d-sm-flex justify-content-between align-items-center">
@@ -303,11 +304,7 @@ function UiCards() {
         </Col>
         <Col xl="6">
           <Card className="">
-            <img
-              className="card-img-top img-fluid"
-              src={img1}
-              alt="Card cap"
-            />
+            <img className="card-img-top img-fluid" src={img1} alt="Card cap" />
             <Card.Header>
               <Card.Title>Card title</Card.Title>
             </Card.Header>
@@ -325,11 +322,7 @@ function UiCards() {
         </Col>
         <Col xl="6">
           <Card className="">
-            <img
-              className="card-img-top img-fluid"
-              src={img2}
-              alt="Card cap"
-            />
+            <img className="card-img-top img-fluid" src={img2} alt="Card cap" />
             <Card.Header>
               <Card.Title>Card title</Card.Title>
             </Card.Header>
@@ -374,6 +367,6 @@ function UiCards() {
       </Row>
     </Fragment>
   );
-};
+}
 
 export default UiCards;

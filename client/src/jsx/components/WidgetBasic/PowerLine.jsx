@@ -22,58 +22,54 @@ class PowerLine extends Component {
           pointHoverBackgroundColor: "#46FFC8",
           pointHoverBorderColor: "#46FFC8",
           pointHoverRadius: 0,
-		  fill:true
+          fill: true,
         },
       ],
     };
 
     const options = {
-		plugins:{
-			legend: {
-				display: false,
-				labels: {
-				  usePointStyle: false,
-				},
-			  },
-			  responsive: true,
-			  tooltips: {
-				enabled: false,
-			  },
-			  title: {
-				display: false,
-			  },
-		},
-      
+      plugins: {
+        legend: {
+          display: false,
+          labels: {
+            usePointStyle: false,
+          },
+        },
+        responsive: true,
+        tooltips: {
+          enabled: false,
+        },
+        title: {
+          display: false,
+        },
+      },
+
       maintainAspectRatio: false,
-      
-      
+
       scales: {
-        x:
-          {
+        x: {
+          display: false,
+          gridLines: {
             display: false,
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
-            scaleLabel: {
-              display: false,
-              labelString: "Month",
-            },
+            drawBorder: false,
           },
-        
-        y: 
-          {
+          scaleLabel: {
             display: false,
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
-            scaleLabel: {
-              display: true,
-              labelString: "Value",
-            },
+            labelString: "Month",
           },
-        
+        },
+
+        y: {
+          display: false,
+          gridLines: {
+            display: false,
+            drawBorder: false,
+          },
+          scaleLabel: {
+            display: true,
+            labelString: "Value",
+          },
+        },
       },
       elements: {
         line: {
@@ -84,7 +80,6 @@ class PowerLine extends Component {
           borderWidth: 0,
         },
       },
-      
     };
     return (
       <div style={{ height: 140 }}>

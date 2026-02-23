@@ -15,58 +15,55 @@ class WeeklySales2 extends Component {
           backgroundColor: "rgba(108,75, 174, 1)",
           pointBackgroundColor: "rgba(108, 75, 174, 1)",
           pointRadius: 0,
-		  tension:0.3,
-		  fill:true
+          tension: 0.3,
+          fill: true,
         },
       ],
     };
 
     const options = {
-     plugins:{
-		  legend: false,
-		responsive: true,
-		tooltips: {
-			intersect: !1,
-			mode: "nearest",
-			xPadding: 10,
-			yPadding: 10,
-			caretPadding: 10,
-		  },
-	 },
+      plugins: {
+        legend: false,
+        responsive: true,
+        tooltips: {
+          intersect: !1,
+          mode: "nearest",
+          xPadding: 10,
+          yPadding: 10,
+          caretPadding: 10,
+        },
+      },
       maintainAspectRatio: false,
-      
+
       scales: {
-        y: 
-          {
+        y: {
+          display: false,
+          ticks: {
+            beginAtZero: true,
+            max: 100,
+            min: 0,
+            stepSize: 20,
+            padding: 0,
             display: false,
-            ticks: {
-              beginAtZero: true,
-              max: 100,
-              min: 0,
-              stepSize: 20,
-              padding: 0,
-              display: false,
-            },
-            gridLines: {
-              drawBorder: false,
-              display: false,
-            },
           },
-        
-        x: 
-          {
+          gridLines: {
+            drawBorder: false,
             display: false,
-            ticks: {
-              padding: 0,
-              display: false,
-              beginAtZero: true,
-            },
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
           },
-        
+        },
+
+        x: {
+          display: false,
+          ticks: {
+            padding: 0,
+            display: false,
+            beginAtZero: true,
+          },
+          gridLines: {
+            display: false,
+            drawBorder: false,
+          },
+        },
       },
     };
 

@@ -22,7 +22,7 @@ class FeeCollection extends Component {
           pointHoverBackgroundColor: "#FFF",
           pointHoverBorderColor: "#0074FF",
           pointHoverRadius: 0,
-		  fill: true,
+          fill: true,
         },
       ],
     };
@@ -33,40 +33,38 @@ class FeeCollection extends Component {
       tooltips: {
         enabled: false,
       },
-      plugins:{
-		  legend: {
-			display: false,
-			labels: {
-			  usePointStyle: false,
-			},
-		  }
-	  },
+      plugins: {
+        legend: {
+          display: false,
+          labels: {
+            usePointStyle: false,
+          },
+        },
+      },
       scales: {
-        x:
-          {
+        x: {
+          display: false,
+          gridLines: {
             display: false,
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
-            scaleLabel: {
-              display: false,
-              labelString: "Month",
-            },
+            drawBorder: false,
           },
-        
-        y:
-          {
+          scaleLabel: {
             display: false,
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
-            scaleLabel: {
-              display: true,
-              labelString: "Value",
-            },
+            labelString: "Month",
           },
+        },
+
+        y: {
+          display: false,
+          gridLines: {
+            display: false,
+            drawBorder: false,
+          },
+          scaleLabel: {
+            display: true,
+            labelString: "Value",
+          },
+        },
       },
       elements: {
         line: {

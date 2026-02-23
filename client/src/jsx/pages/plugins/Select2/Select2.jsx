@@ -29,7 +29,7 @@ const Select2 = () => {
                 <p>Select2 can take a regular select box like this...</p>
               </div>
 
-              <Select 
+              <Select
                 className="select2dark"
                 defaultValue={selectedOption}
                 onChange={setSelectedOption}
@@ -48,12 +48,15 @@ const Select2 = () => {
             <div className="card-body">
               <div className="mb-4">
                 <h4 className="card-title">Multi-select boxes</h4>
-                <p> Select2 also supports multi-value select boxes. The select below is declared with the multiple
+                <p>
+                  {" "}
+                  Select2 also supports multi-value select boxes. The select
+                  below is declared with the multiple
                   <mark className="text-primary">attribute</mark>.
                 </p>
               </div>
 
-              <CustomClearIndicator/>
+              <CustomClearIndicator />
             </div>
           </div>
         </div>
@@ -69,7 +72,7 @@ const Select2 = () => {
                 </p>
               </div>
 
-              <CustomGroup/>
+              <CustomGroup />
             </div>
           </div>
         </div>
@@ -142,32 +145,35 @@ const Select2 = () => {
                   <code>&lt;select&gt;</code> element.
                 </p>
               </div>
-				<div className="row">
-					<div className="col-lg-12">
-					  <label className="mb-4 select2-label" htmlFor="id_label_single">
-						Click this to highlight the single select element <br />
-						<Select
-						  className="select2dark"
-						  defaultValue={selectedOption}
-						  onChange={setSelectedOption}
-						  options={options}
-						  style={{
-							lineHeight: "40px",
-							color: "#7e7e7e",
-							paddingLeft: " 15px",
-						  }}
-						/>
-					  </label>
-					</div>
-					<div className="col-lg-12">
-					  <label className="select2-label" htmlFor="id_label_multiple">
-						Click this to highlight the multiple select element
-						<br />
-						<CustomClearIndicator></CustomClearIndicator>
-						<br />
-					  </label>
-					</div>
-				</div>
+              <div className="row">
+                <div className="col-lg-12">
+                  <label
+                    className="mb-4 select2-label"
+                    htmlFor="id_label_single"
+                  >
+                    Click this to highlight the single select element <br />
+                    <Select
+                      className="select2dark"
+                      defaultValue={selectedOption}
+                      onChange={setSelectedOption}
+                      options={options}
+                      style={{
+                        lineHeight: "40px",
+                        color: "#7e7e7e",
+                        paddingLeft: " 15px",
+                      }}
+                    />
+                  </label>
+                </div>
+                <div className="col-lg-12">
+                  <label className="select2-label" htmlFor="id_label_multiple">
+                    Click this to highlight the multiple select element
+                    <br />
+                    <CustomClearIndicator></CustomClearIndicator>
+                    <br />
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -752,7 +758,7 @@ const Select2 = () => {
 
               <div className="mb-4">
                 <Select
-                className="select2dark"
+                  className="select2dark"
                   defaultValue={selectedOption}
                   onChange={setSelectedOption}
                   options={options}
@@ -784,7 +790,7 @@ const Select2 = () => {
 
               <div className="mb-4">
                 <Select
-                className="select2dark"
+                  className="select2dark"
                   defaultValue={selectedOption}
                   onChange={setSelectedOption}
                   options={options}
@@ -840,7 +846,7 @@ const Select2 = () => {
               </button>
               <div className="mt-4">
                 <Select
-                className="select2dark"
+                  className="select2dark"
                   defaultValue={selectedOption}
                   onChange={setSelectedOption}
                   options={options}

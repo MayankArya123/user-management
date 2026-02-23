@@ -38,25 +38,22 @@ const options = {
     intersect: true,
   },
   scales: {
-    y: 
-      {
-        display: false,
-        ticks: {
-          beginAtZero: true,
-          max: 100,
-          min: 0,
-          stepSize: 20,
-          padding: 10,
-        },
+    y: {
+      display: false,
+      ticks: {
+        beginAtZero: true,
+        max: 100,
+        min: 0,
+        stepSize: 20,
+        padding: 10,
       },
-    
-    x: 
-      {
-        ticks: {
-          padding: 5,
-        },
+    },
+
+    x: {
+      ticks: {
+        padding: 5,
       },
-    
+    },
   },
   elements: {
     point: {

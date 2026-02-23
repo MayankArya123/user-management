@@ -10,15 +10,19 @@ import Select from "react-select";
 }; */
 
 const options = [
-   { value: "chocolate", label: "Chocolate" },
-   { value: "strawberry", label: "Strawberry" },
-   { value: "vanilla", label: "Vanilla" },
+  { value: "chocolate", label: "Chocolate" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "vanilla", label: "Vanilla" },
 ];
 
 export default function customGroup() {
-   return (
-      <div style={{ minHeight: "100px" }}>
-         <Select className="select2dark" defaultValue={options[1]} options={options} />
-      </div>
-   );
+  return (
+    <div style={{ minHeight: "100px" }}>
+      <Select
+        className="select2dark"
+        defaultValue={options[1]}
+        options={options}
+      />
+    </div>
+  );
 }

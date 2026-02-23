@@ -1,8 +1,6 @@
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 
-
 const WorldMap = () => {
-	
   return (
     <ComposableMap>
       <Geographies geography="./features.json">
@@ -13,8 +11,6 @@ const WorldMap = () => {
         }
       </Geographies>
     </ComposableMap>
-	
-	
   );
 };
 

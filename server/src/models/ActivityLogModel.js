@@ -36,7 +36,7 @@ const activityLogSchema = new mongoose.Schema(
       type: Object,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 module.exports = mongoose.model("ActivityLog", activityLogSchema);

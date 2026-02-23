@@ -4,33 +4,33 @@ import ReactApexChart from "react-apexcharts";
 const WeeklySalesBarChart = () => {
   const series = [
     {
-      name: 'Sales',
-      data: [28, 40, 50, 68, 30, 68, 48, 28, 20]
-    }
+      name: "Sales",
+      data: [28, 40, 50, 68, 30, 68, 48, 28, 20],
+    },
   ];
 
   const options = {
     chart: {
-      type: 'bar',
+      type: "bar",
       stacked: false,
       height: 150,
       offsetX: -8,
       offsetY: 25,
       toolbar: {
         show: false,
-      }
+      },
     },
     plotOptions: {
       bar: {
         horizontal: false,
         borderRadius: 2,
-        columnWidth: '30%',
+        columnWidth: "30%",
         colors: {
           backgroundBarOpacity: 1,
         },
       },
     },
-    colors: ['var(--primary)', 'var(--secondary)'],
+    colors: ["var(--primary)", "var(--secondary)"],
     xaxis: {
       show: false,
       axisBorder: {
@@ -42,11 +42,11 @@ const WeeklySalesBarChart = () => {
       labels: {
         show: false,
         style: {
-          colors: '#828282',
-          fontSize: '14px',
-          fontFamily: 'Poppins',
-          fontWeight: 'light',
-          cssClass: 'apexcharts-xaxis-label',
+          colors: "#828282",
+          fontSize: "14px",
+          fontFamily: "Poppins",
+          fontWeight: "light",
+          cssClass: "apexcharts-xaxis-label",
         },
       },
       crosshairs: {
@@ -65,23 +65,18 @@ const WeeklySalesBarChart = () => {
       enabled: false,
     },
     dataLabels: {
-      enabled: false
+      enabled: false,
     },
     legend: {
-      show: false
+      show: false,
     },
     fill: {
-      opacity: 1
-    }
+      opacity: 1,
+    },
   };
 
   return (
-    <ReactApexChart
-      options={options}
-      series={series}
-      type="bar"
-      height={150}
-    />
+    <ReactApexChart options={options} series={series} type="bar" height={150} />
   );
 };
 

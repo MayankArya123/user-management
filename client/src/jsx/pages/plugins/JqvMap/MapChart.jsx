@@ -4,7 +4,7 @@ import {
   ComposableMap,
   Geographies,
   Geography,
- // Marker,
+  // Marker,
   //Annotation
 } from "react-simple-maps";
 
@@ -30,7 +30,7 @@ const MapChart = () => {
       <Geographies geography={geoUrl}>
         {({ geographies }) => (
           <>
-            {geographies.map(geo => (
+            {geographies.map((geo) => (
               <Geography
                 key={geo.rsmKey}
                 stroke="#FFF"
@@ -38,7 +38,6 @@ const MapChart = () => {
                 fill="#eff2f4"
               />
             ))}
-            
           </>
         )}
       </Geographies>

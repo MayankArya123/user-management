@@ -24,7 +24,7 @@ class Widget2 extends Component {
           label: "Expense",
           backgroundColor: "#ff2c53",
           hoverBackgroundColor: "#ff5777",
-		  barThickness: 9,
+          barThickness: 9,
           data: [
             "20",
             "14",
@@ -44,7 +44,7 @@ class Widget2 extends Component {
           label: "Earning",
           backgroundColor: "#F1F3F7",
           hoverBackgroundColor: "#F1F3F7",
-		  barThickness: 9,
+          barThickness: 9,
           data: [
             "12",
             "18",
@@ -64,48 +64,45 @@ class Widget2 extends Component {
     };
 
     const options = {
-      plugins:{
-		  legend: {
-			display: false,
-		  },
-		  title: {
-			display: false,
-		  },
-		  tooltips: {
-			mode: "index",
-			intersect: false,
-		  }
-	  },
+      plugins: {
+        legend: {
+          display: false,
+        },
+        title: {
+          display: false,
+        },
+        tooltips: {
+          mode: "index",
+          intersect: false,
+        },
+      },
       responsive: true,
       maintainAspectRatio: false,
       scales: {
-        x: 
-          {
+        x: {
+          display: false,
+          stacked: true,
+          barPercentage: 0.2,
+          ticks: {
             display: false,
-            stacked: true,
-            barPercentage: 0.2,
-            ticks: {
-              display: false,
-            },
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
           },
-        
-        y: 
-          {
+          gridLines: {
             display: false,
-            stacked: true,
-            gridLines: {
-              display: false,
-              drawBorder: false,
-            },
-            ticks: {
-              display: false,
-            },
+            drawBorder: false,
           },
-        
+        },
+
+        y: {
+          display: false,
+          stacked: true,
+          gridLines: {
+            display: false,
+            drawBorder: false,
+          },
+          ticks: {
+            display: false,
+          },
+        },
       },
     };
 

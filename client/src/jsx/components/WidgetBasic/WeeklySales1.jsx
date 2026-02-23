@@ -14,62 +14,59 @@ class WeeklySales1 extends Component {
           pointBorderColor: "#709fba",
           pointHoverBackgroundColor: "#709fba",
           pointHoverBorderColor: "#709fba",
-		  fill:true,
+          fill: true,
           data: [0, 18, 14, 20, 16, 26],
         },
       ],
     };
 
     const options = {
-      plugins:{
-		  title: {
-			display: !1,
-		  },
-		  tooltips: {
-			intersect: !1,
-			mode: "nearest",
-			xPadding: 5,
-			yPadding: 5,
-			caretPadding: 5,
-		  },
-		  legend: {
-			display: !1,
-		  },
-		  responsive: !0,
-		  hover: {
-			mode: "index",
-		  },
-	  },
+      plugins: {
+        title: {
+          display: !1,
+        },
+        tooltips: {
+          intersect: !1,
+          mode: "nearest",
+          xPadding: 5,
+          yPadding: 5,
+          caretPadding: 5,
+        },
+        legend: {
+          display: !1,
+        },
+        responsive: !0,
+        hover: {
+          mode: "index",
+        },
+      },
       maintainAspectRatio: !1,
-      
+
       scales: {
-        x: 
-          {
-            display: !1,
-            gridLines: !1,
-            scaleLabel: {
-              display: !0,
-              labelString: "Month",
-            },
-            ticks: {
-              max: 30,
-              min: 0,
-            },
+        x: {
+          display: !1,
+          gridLines: !1,
+          scaleLabel: {
+            display: !0,
+            labelString: "Month",
           },
-        
-        y :
-          {
-            display: !1,
-            gridLines: !1,
-            scaleLabel: {
-              display: !0,
-              labelString: "Value",
-            },
-            ticks: {
-              beginAtZero: !0,
-            },
+          ticks: {
+            max: 30,
+            min: 0,
           },
-        
+        },
+
+        y: {
+          display: !1,
+          gridLines: !1,
+          scaleLabel: {
+            display: !0,
+            labelString: "Value",
+          },
+          ticks: {
+            beginAtZero: !0,
+          },
+        },
       },
       elements: {
         line: {
@@ -91,9 +88,9 @@ class WeeklySales1 extends Component {
     };
 
     return (
-		<div style={{ height: 290 }}>
-			<Line data={data} options={options} height={290} />
-		</div>
+      <div style={{ height: 290 }}>
+        <Line data={data} options={options} height={290} />
+      </div>
     );
   }
 }

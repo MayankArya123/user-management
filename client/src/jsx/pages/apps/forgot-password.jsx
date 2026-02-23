@@ -6,7 +6,6 @@ import { changePassword } from "../../../services/UserService";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 
-
 function ChangePassword() {
   const dispatch = useDispatch();
   const authState = useSelector((state) => state?.auth?.user);
@@ -19,8 +18,6 @@ function ChangePassword() {
   });
 
   useEffect(() => {
-    console.log("check auth state", authState);
-
     if (authState) {
       setPasswordData({
         currentPassword: authState?.currentPassword,
@@ -45,11 +42,9 @@ function ChangePassword() {
 
     const response = await changePassword(passwordData);
 
-    console.log("response", response);
-
     if (response?.status === 200) {
       alert("password changed successfully");
-      return navigate('/dashboard');
+      return navigate("/dashboard");
     }
   };
 

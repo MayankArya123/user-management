@@ -26,7 +26,7 @@ export function AuthReducer(state = initialState, action) {
     };
   }
   if (action.type === LOGIN_CONFIRMED_ACTION) {
-    console.log("check action hitting", action.payload);
+    // console.log("check action hitting", action.payload);
     return {
       ...state,
       user: action.payload,
