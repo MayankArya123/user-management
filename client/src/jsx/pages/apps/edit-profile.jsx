@@ -11,6 +11,7 @@ import { updateUserAction } from "../../../store/actions/AuthActions";
 import { useNavigate } from "react-router-dom";
 import { getSpecificUser } from "../../../services/UserService";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function EditProfile() {
   const { id } = useParams();
@@ -19,6 +20,7 @@ function EditProfile() {
   const authState = useSelector((state) => state?.auth?.user);
   const [imagePreview, setImagePreview] = useState(null);
   const [profileImage, setProfileImage] = useState(null);
+  const role = authState?.role;
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -46,7 +48,6 @@ function EditProfile() {
 
   const getUserByData = async (userId) => {
     const response = await getSpecificUser(userId);
-    // console.log("response check", response);
 
     setFormData({
       name: response?.data?.name || "",
@@ -74,6 +75,30 @@ function EditProfile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (formData?.name.length < 3) {
+      toast("Name must be at least 3 characters");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData?.email)) {
+      toast("Please enter a valid email address");
+      return;
+    }
+
+    if (role === "user") {
+      const phoneRegex = /^[0-9]{10}$/;
+      if (!phoneRegex.test(formData?.phone)) {
+        toast("Phone number must be 10 digits");
+        return;
+      }
+    }
+
+    if (formData?.bio === "") {
+      toast("Bio can not be empty");
+      return;
+    }
+
     const data = new FormData();
     if (formData.name !== authState.name) data.append("name", formData.name);
     if (formData.email !== authState.email)
@@ -86,14 +111,8 @@ function EditProfile() {
       data.append("profilePicture", image);
     }
 
-    for (let pair of data.entries()) {
-      console.log(pair[0], pair[1]);
-    }
-
-    const result = await dispatch(updateUserAction(id, data, navigate));
+    await dispatch(updateUserAction(id, data, navigate, authState?._id));
   };
-
-  const role = authState?.role;
 
   return (
     <Fragment>
@@ -208,19 +227,17 @@ function EditProfile() {
                     </div>
                   </div>
 
-                  {role !== "user" && (
-                    <div className="col-sm-6">
-                      <div className="mb-3">
-                        <label className="form-label">Bio</label>
-                        <textarea
-                          className="form-control"
-                          name="bio"
-                          value={formData.bio}
-                          onChange={handleChange}
-                        />
-                      </div>
+                  <div className="col-sm-6">
+                    <div className="mb-3">
+                      <label className="form-label">Bio</label>
+                      <textarea
+                        className="form-control"
+                        name="bio"
+                        value={formData.bio}
+                        onChange={handleChange}
+                      />
                     </div>
-                  )}
+                  </div>
                 </div>
               </div>
 
@@ -229,12 +246,15 @@ function EditProfile() {
                   UPDATE
                 </button>
 
-                {authState?.role === "user" && (
+                {authState?._id === id && (
                   <Link
                     to="/page-forgot-password"
                     className="text-hover float-end"
+                    style={{
+                      color: "blue",
+                    }}
                   >
-                    Forgot your password?
+                    Change your password?
                   </Link>
                 )}
               </div>

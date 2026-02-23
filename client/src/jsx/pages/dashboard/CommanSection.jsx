@@ -335,8 +335,9 @@ const CommanSection = () => {
                                     >
                                       Delete
                                     </Dropdown.Item>
-                                    <Dropdown.Item
-                                      href={`/edit-profile/${data?._id}`}
+                                    <Dropdown.Item 
+                                      as={Link}
+                                      to={`/edit-profile/${data?._id}`}
                                       className="dropdown-item"
                                     >
                                       Edit
@@ -350,7 +351,7 @@ const CommanSection = () => {
                                       {data.isBlocked ? "Unblock" : "Block"}
                                     </Dropdown.Item>
 
-                                    {!isImpersonating() && (
+                                    {/* {!isImpersonating() && (
                                       <Dropdown.Item
                                         onClick={() =>
                                           PersonateImpersonateUser(data?._id)
@@ -358,7 +359,7 @@ const CommanSection = () => {
                                       >
                                         Impersonate
                                       </Dropdown.Item>
-                                    )}
+                                    )} */}
                                   </Dropdown.Menu>
                                 </Dropdown>
                               </td>

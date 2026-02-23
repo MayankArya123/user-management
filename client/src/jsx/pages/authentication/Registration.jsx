@@ -5,10 +5,10 @@ import {
   loadingToggleAction,
   signupAction,
 } from "../../../store/actions/AuthActions";
-// image
 import logo from "../../../assets/images/logo-full.png";
 import logo2 from "../../../assets/images/logo-full-white.png";
 import pic1 from "../../../assets/images/pic1.svg";
+import { useNavigate } from "react-router-dom";
 
 function Register(props) {
   const [openEyes, setOpenEyes] = useState(true);
@@ -17,6 +17,7 @@ function Register(props) {
   let errorsObj = { email: "", password: "" };
   const [errors, setErrors] = useState(errorsObj);
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
 
   const dispatch = useDispatch();
 
@@ -24,6 +25,11 @@ function Register(props) {
     e.preventDefault();
     let error = false;
     const errorObj = { ...errorsObj };
+    if (name === "") {
+      errorObj.email = "Name is Required";
+      error = true;
+      swal("Oops", errorObj.email, "error");
+    }
     if (email === "") {
       errorObj.email = "Email is Required";
       error = true;
@@ -38,7 +44,7 @@ function Register(props) {
     if (error) return;
 
     dispatch(loadingToggleAction(true));
-    dispatch(signupAction(name, email, password, props.history));
+    dispatch(signupAction(name, email, password, navigate));
   }
   return (
     <>
@@ -55,8 +61,8 @@ function Register(props) {
             </div>
             <h3 className="mb-2">Welcome back!</h3>
             <p>
-              User Experience & Interface Design <br />
-              Strategy SaaS Solutions
+              User Management
+              <br />
             </p>
           </div>
           <div

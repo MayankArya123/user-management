@@ -7,6 +7,7 @@ import {
 } from "../../services/AuthService";
 
 import { updateUser } from "../../services/UserService";
+import { toast } from "react-toastify";
 
 export const SIGNUP_CONFIRMED_ACTION = "[signup action] confirmed signup";
 export const SIGNUP_FAILED_ACTION = "[signup action] failed signup";
@@ -20,13 +21,16 @@ export function signupAction(name, email, password, navigate) {
   return (dispatch) => {
     signUp(name, email, password)
       .then((response) => {
-        saveTokenInLocalStorage(response.data);
+        saveTokenInLocalStorage(response.data?.token);
         runLogoutTimer(dispatch, response.data.expiresIn * 1000);
         dispatch(confirmedSignupAction(response.data));
         navigate("/dashboard");
       })
       .catch((error) => {
-        const errorMessage = formatError(error.response.data);
+        // console.log("error", error);
+
+        const errorMessage = error.response.data?.message;
+        toast.error(errorMessage);
         dispatch(signupFailedAction(errorMessage));
       });
   };
@@ -45,11 +49,13 @@ export function loginAction(email, password, navigate) {
     login(email, password)
       .then((response) => {
         // console.log("response", response);
+        navigate("/dashboard");
         saveTokenInLocalStorage(response.data?.token);
       })
       .catch((error) => {
         // console.log("error", error);
-        const errorMessage = formatError(error.response.data);
+        const errorMessage = error.response.data?.message;
+        toast.error(errorMessage);
         dispatch(loginFailedAction(errorMessage));
       });
   };
@@ -98,23 +104,26 @@ export function setUserData(payload) {
   };
 }
 
-export function updateUserAction(userId, data, navigate) {
+export function updateUserAction(userId, data, navigate, authId) {
   return (dispatch) => {
     updateUser(userId, data)
       .then((response) => {
         // console.log("user updated", response);
         if (response?.status === 200) {
-          alert("user updated");
+          toast.success("user updated");
           navigate("/dashboard");
 
-          dispatch({
-            type: UPDATE_USER_SUCCESS,
-            payload: response?.data?.user,
-          });
+          if (authId === userId) {
+            dispatch({
+              type: UPDATE_USER_SUCCESS,
+              payload: response?.data?.user,
+            });
+          }
         }
       })
       .catch((error) => {
-        // const errorMessage = formatError(error.response.data);
+        const errorMessage = error.response.data?.message;
+        toast.error(errorMessage);
         // dispatch(signupFailedAction(errorMessage));
       });
   };

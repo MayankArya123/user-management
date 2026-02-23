@@ -11,6 +11,7 @@ import { updateUserAction } from "../../../store/actions/AuthActions";
 import axios from "axios";
 import { createUser } from "../../../services/UserService";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function CreateUser() {
   const dispatch = useDispatch();
@@ -18,15 +19,6 @@ function CreateUser() {
   const [imagePreview, setImagePreview] = useState(null);
   const [profileImage, setProfileImage] = useState(null);
   const navigate = useNavigate();
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-
-    if (file) {
-      setImage(file);
-      setImagePreview(URL.createObjectURL(file));
-    }
-  };
 
   const [formData, setFormData] = useState({
     name: "",
@@ -40,14 +32,6 @@ function CreateUser() {
     newPassword: "",
   });
 
-  const [image, setImage] = useState(null);
-
-  useEffect(() => {
-    // console.log("check auth state", authState);
-
-    setProfileImage(authState?.profilePicture);
-  }, [authState]);
-
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -56,11 +40,16 @@ function CreateUser() {
   };
 
   const registerUser = async () => {
-    const response = await createUser(formData);
+    try {
+      const response = await createUser(formData);
+      if (response?.status === 201) {
+        toast.success("user created");
+        return navigate("/dashboard");
+      }
+    } catch (err) {
 
-    if (response?.status === 201) {
-      alert("user created");
-      return navigate("/dashboard");
+      const errorMessage = err?.response?.data?.message;
+      toast.error(errorMessage);
     }
   };
 
@@ -139,17 +128,9 @@ function CreateUser() {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="card-footer">
                 <button type="submit" className="btn btn-primary">
                   SUBMIT
                 </button>
-                <Link
-                  to="/page-forgot-password"
-                  className="text-hover float-end"
-                >
-                  Forgot your password?
-                </Link>
               </div>
             </form>
           </div>

@@ -31,7 +31,7 @@ export function AuthReducer(state = initialState, action) {
       ...state,
       user: action.payload,
       errorMessage: "",
-      successMessage: "Login Successfully Completed",
+      successMessage: "",
       showLoading: false,
     };
   }
@@ -75,7 +75,7 @@ export function AuthReducer(state = initialState, action) {
       ...state,
       user: action.payload,
       errorMessage: "",
-      successMessage: "User updated successfully",
+      successMessage: "",
       showLoading: false,
     };
   }
