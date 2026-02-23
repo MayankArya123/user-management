@@ -39,3 +39,11 @@ export function impersonateUser(userId) {
 export function switchBack(impersonateId) {
   return axiosInstance.post(`api/admin/switch-back/${impersonateId}`);
 }
+
+export function changePassword(passwordData) {
+  return axiosInstance.put(`api/users/change-password`, passwordData);
+}
+
+export function getSpecificUser(userId) {
+  return axiosInstance.get(`api/users/user/${userId}`);
+}

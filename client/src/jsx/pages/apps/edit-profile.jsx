@@ -9,8 +9,11 @@ import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { updateUserAction } from "../../../store/actions/AuthActions";
 import { useNavigate } from "react-router-dom";
+import { getSpecificUser } from "../../../services/UserService";
+import { useParams } from "react-router-dom";
 
 function EditProfile() {
+  const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const authState = useSelector((state) => state?.auth?.user);
@@ -41,20 +44,25 @@ function EditProfile() {
 
   const [image, setImage] = useState(null);
 
+  const getUserByData = async (userId) => {
+    const response = await getSpecificUser(userId);
+    console.log("response check", response);
+
+    setFormData({
+      name: response?.data?.name || "",
+      email: response?.data?.email || "",
+      phone: response?.data?.phone || "",
+      bio: response?.data?.bio || "",
+    });
+
+    setProfileImage(response?.data?.profilePicture);
+  };
+
   useEffect(() => {
-    console.log("check auth state", authState);
-
-    if (authState) {
-      setFormData({
-        name: authState.name || "",
-        email: authState.email || "",
-        phone: authState.phone || "",
-        bio: authState.bio || "",
-      });
+    if (id) {
+      getUserByData(id);
     }
-
-    setProfileImage(authState?.profilePicture);
-  }, [authState]);
+  }, [id]);
 
   const handleChange = (e) => {
     setFormData({
@@ -67,10 +75,12 @@ function EditProfile() {
     e.preventDefault();
 
     const data = new FormData();
-    data.append("name", formData.name);
-    data.append("email", formData.email);
-    data.append("phone", formData.phone);
-    data.append("bio", formData.bio);
+    if (formData.name !== authState.name) data.append("name", formData.name);
+    if (formData.email !== authState.email)
+      data.append("email", formData.email);
+    if (formData.phone !== authState.phone)
+      data.append("phone", formData.phone);
+    if (formData.bio !== authState.bio) data.append("bio", formData.bio);
 
     if (image) {
       console.log("check image", image);
@@ -82,9 +92,7 @@ function EditProfile() {
     }
     console.log("updated data check", data);
 
-    const result = await dispatch(
-      updateUserAction(authState?._id, data, navigate),
-    );
+    const result = await dispatch(updateUserAction(id, data, navigate));
   };
 
   const role = authState?.role;
@@ -93,7 +101,7 @@ function EditProfile() {
     <Fragment>
       <PageTitle activeMenu="Edit Profile" motherMenu="App" />
       <div className="row">
-        {role === "user" && (
+        {
           <div className="col-xl-3 col-lg-4">
             <div className="clearfix">
               <div className="card  profile-card author-profile m-b30">
@@ -122,7 +130,7 @@ function EditProfile() {
                         </div>
                       </div>
                       <div className="author-info">
-                        <h6 className="title"> {authState?.name}</h6>
+                        <h6 className="title"> {formData?.name}</h6>
                       </div>
                     </div>
                   </div>
@@ -130,13 +138,9 @@ function EditProfile() {
               </div>
             </div>
           </div>
-        )}
+        }
 
-        <div
-          className={
-            role === "user" ? "col-xl-9 col-lg-8" : "col-xl-12 col-lg-12"
-          }
-        >
+        <div className={"col-xl-9 col-lg-8"}>
           <div className="card profile-card m-b30">
             <div className="card-header">
               <h4 className="card-title">Account setup</h4>
@@ -221,16 +225,20 @@ function EditProfile() {
                   )}
                 </div>
               </div>
+
               <div className="card-footer">
                 <button type="submit" className="btn btn-primary">
                   UPDATE
                 </button>
-                {/* <Link
-                  to="/page-forgot-password"
-                  className="text-hover float-end"
-                >
-                  Forgot your password?
-                </Link> */}
+
+                {authState?.role === "user" && (
+                  <Link
+                    to="/page-forgot-password"
+                    className="text-hover float-end"
+                  >
+                    Forgot your password?
+                  </Link>
+                )}
               </div>
             </form>
           </div>

@@ -89,7 +89,6 @@ function Login(props) {
                           className="form-control"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          placeholder="Type Your Email Address"
                         />
                       </div>
                       {errors.email && (
@@ -105,7 +104,6 @@ function Login(props) {
                           type={openEyes ? "password" : "value"}
                           className="form-control"
                           value={password}
-                          placeholder="Type Your Password"
                           onChange={(e) => setPassword(e.target.value)}
                         />
                         {errors.password && (

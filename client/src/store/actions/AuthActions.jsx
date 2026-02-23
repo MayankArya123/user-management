@@ -113,10 +113,12 @@ export function updateUserAction(userId, data, navigate) {
         if (response?.status === 200) {
           alert("user updated");
           navigate("/dashboard");
+
+          dispatch({
+            type: UPDATE_USER_SUCCESS,
+            payload: response?.data?.user,
+          });
         }
-        // saveTokenInLocalStorage(response.data);
-        // runLogoutTimer(dispatch, response.data.expiresIn * 1000);
-        // dispatch(updateUserdata(response.data));
       })
       .catch((error) => {
         // const errorMessage = formatError(error.response.data);

@@ -140,6 +140,7 @@ import Login from "../pages/authentication/Login";
 import Registration from "../pages/authentication/Registration";
 import ScrollToTop from "../element/scrolltotop";
 import CreateUser from "../pages/apps/create-user";
+import ForgotPassword from "../pages/apps/forgot-password";
 
 const Markup = () => {
   const menu = [
@@ -149,8 +150,7 @@ const Markup = () => {
     { path: "dashboard-2", element: <Dashboard2 /> },
     { path: "project-page", element: <Projectpage /> },
     { path: "contact", element: <Contact /> },
-    { path: "kanban", element: <Kanban /> },
-    { path: "message", element: <Message /> },
+
     { path: "content", element: <Content /> },
     { path: "content-add", element: <ContentAdd /> },
     { path: "menu", element: <Menu /> },
@@ -186,6 +186,7 @@ const Markup = () => {
     { path: "import", element: <Import /> },
     { path: "app-profile", element: <AppProfile /> },
     { path: "edit-profile/:id", element: <EditProfile /> },
+    { path: "page-forgot-password", element: <ForgotPassword /> },
     { path: "create-user", element: <CreateUser /> },
     { path: "post-details", element: <PostDetails /> },
     { path: "blog-post", element: <BlogPost /> },

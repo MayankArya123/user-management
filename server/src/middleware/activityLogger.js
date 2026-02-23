@@ -1,3 +1,5 @@
+const ActivityLog = require('../models/ActivityLogModel')
+
 const activityLogger = (action) => {
   return async (req, res, next) => {
     res.on("finish", async () => {
