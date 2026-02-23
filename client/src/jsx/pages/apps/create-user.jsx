@@ -47,7 +47,6 @@ function CreateUser() {
         return navigate("/dashboard");
       }
     } catch (err) {
-
       const errorMessage = err?.response?.data?.message;
       toast.error(errorMessage);
     }

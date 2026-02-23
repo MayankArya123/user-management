@@ -335,7 +335,7 @@ const CommanSection = () => {
                                     >
                                       Delete
                                     </Dropdown.Item>
-                                    <Dropdown.Item 
+                                    <Dropdown.Item
                                       as={Link}
                                       to={`/edit-profile/${data?._id}`}
                                       className="dropdown-item"

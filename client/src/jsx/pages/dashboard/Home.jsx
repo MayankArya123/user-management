@@ -64,7 +64,6 @@ function Home() {
               {/* Buttons */}
               <div className="d-flex justify-content-center gap-2">
                 <Link
-                
                   to={`/edit-profile/${authState?._id}`}
                   className="btn btn-outline-primary btn-sm"
                 >

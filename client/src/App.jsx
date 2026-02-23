@@ -1,6 +1,6 @@
 import Markup from "./jsx/route/index";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./jsx/index.css";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -16,8 +16,8 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function App() {
   return (
-    <> 
-      <ToastContainer/>
+    <>
+      <ToastContainer />
       <Markup />
     </>
   );
