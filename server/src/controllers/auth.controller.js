@@ -11,6 +11,24 @@ const generateToken = (id, role) => {
 exports.signup = async (req, res) => {
   const { name, email, password } = req.body;
 
+  if (name.length < 2) {
+    return res
+      .status(400)
+      .json({ message: "Name must be at least 2 characters" });
+  }
+
+  if (password.length < 6) {
+    return res
+      .status(400)
+      .json({ message: "Password must be at least 6 characters" });
+  }
+  if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/.test(password)) {
+    return res.status(400).json({
+      message:
+        "Password must contain at least one uppercase letter, one lowercase letter, and one number",
+    });
+  }
+
   const existing = await User.findOne({ email });
   if (existing)
     return res.status(400).json({ message: "Email already exists" });

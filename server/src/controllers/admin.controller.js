@@ -42,12 +42,33 @@ exports.getUsers = async (req, res) => {
 
 exports.createUser = async (req, res) => {
   try {
-    const { password, ...rest } = req.body;
+    const { password, email, name, role } = req.body;
+
+    if (!name || name.trim().length < 3) {
+      return res.status(400).json({
+        message: "Name must be at least 3 characters long",
+      });
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+      return res.status(400).json({
+        message: "Please provide a valid email address",
+      });
+    }
+
+    if (!password || password.length < 6) {
+      return res.status(400).json({
+        message: "Password must be at least 6 characters long",
+      });
+    }
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const user = await User.create({
-      ...rest,
+      email,
+      name,
+      role,
       password: hashedPassword,
     });
 
