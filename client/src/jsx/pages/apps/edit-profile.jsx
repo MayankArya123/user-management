@@ -50,10 +50,11 @@ function EditProfile() {
     const response = await getSpecificUser(userId);
 
     setFormData({
-      name: response?.data?.name || "",
-      email: response?.data?.email || "",
-      phone: response?.data?.phone || "",
-      bio: response?.data?.bio || "",
+      name: response?.data?.name,
+      email: response?.data?.email,
+      phone: response?.data?.phone,
+      bio: response?.data?.bio,
+      role: response?.data?.role,
     });
 
     setProfileImage(response?.data?.profilePicture);
