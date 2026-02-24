@@ -323,7 +323,7 @@ const CommanSection = () => {
                               <td>
                                 {" "}
                                 <span
-                                  className={`badge rounded-pill px-2 py-2 ${
+                                  className={`badge rounded-pill px-2 py-1 ${
                                     data.isBlocked ? "bg-danger" : "bg-success"
                                   }`}
                                 >

@@ -1,4 +1,4 @@
-git clone <repository-url>
+git clone https://github.com/MayankArya123/user-management.git
 cd user-management
 
 cd server
