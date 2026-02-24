@@ -1,3 +1,4 @@
+const IMAGE_URl = import.meta.env.VITE_API_URL;
 import { useContext, useEffect } from "react";
 import CommanSection from "./CommanSection";
 import { ThemeContext } from "../../../context/ThemeContext";
@@ -25,7 +26,7 @@ function Home() {
               {/* Avatar */}
               {authState?.profilePicture ? (
                 <img
-                  src={authState.profilePicture}
+                  src={`${IMAGE_URl + authState?.profilePicture} `}
                   alt="Profile"
                   className="rounded-circle mb-3"
                   width="100"
