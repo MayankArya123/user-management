@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { deleteUser } from "../../../services/UserService";
 import { toggleBlockUser } from "../../../services/UserService";
 import { impersonateUser, switchBack } from "../../../services/UserService";
+import { toast } from "react-toastify";
 
 const CommanSection = () => {
   const authState = useSelector((state) => state?.auth?.user);
@@ -36,9 +37,13 @@ const CommanSection = () => {
   };
 
   const BlockUnBlockUser = async (id) => {
-    const response = await toggleBlockUser(id);
-
-    getUserData();
+    try {
+      await toggleBlockUser(id);
+      getUserData();
+    } catch (err) {
+      const errorMessage = err.response.data.message;
+      toast.error(errorMessage);
+    }
   };
 
   const PersonateImpersonateUser = async (id) => {
@@ -80,6 +85,10 @@ const CommanSection = () => {
   };
 
   const deleteUserData = async (id) => {
+    if (id === authState?._id) {
+      return toast.error("you can not delete yourself");
+    }
+
     const deleteResponse = await deleteUser(id);
 
     if (deleteResponse?.status === 200) {
@@ -313,9 +322,13 @@ const CommanSection = () => {
 
                               <td>
                                 {" "}
-                                <span>
-                                  {data.isBlocked ? "true" : "false"}
-                                </span>{" "}
+                                <span
+                                  className={`badge rounded-pill px-2 py-2 ${
+                                    data.isBlocked ? "bg-danger" : "bg-success"
+                                  }`}
+                                >
+                                  {data.isBlocked ? "blocked" : "active"}
+                                </span>
                               </td>
                               <td>
                                 <Dropdown
