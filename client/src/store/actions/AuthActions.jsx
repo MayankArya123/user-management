@@ -108,9 +108,10 @@ export function updateUserAction(userId, data, navigate, authId) {
   return (dispatch) => {
     updateUser(userId, data)
       .then((response) => {
-        // console.log("user updated", response);
         if (response?.status === 200) {
-          toast.success("user updated");
+          toast.success(
+            authId === userId ? "profile updated" : "user profie updated",
+          );
           navigate("/dashboard");
 
           if (authId === userId) {
