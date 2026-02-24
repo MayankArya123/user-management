@@ -17,7 +17,7 @@ app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(cors({ origin: process.env.CLIENT_URL }));
 
-app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
+app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 500 }));
 
 // Serve uploaded files
 app.use("/uploads", express.static("uploads"));
